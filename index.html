@@ -1,0 +1,2296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIS Study Guide</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Georgia&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="light-mode">
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h1>CIS Study Guide</h1>
+                <button id="sidebar-toggle" class="sidebar-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <div class="theme-toggle">
+                <button id="theme-toggle-btn">
+                    <i class="fas fa-moon"></i>
+                    <span>Dark Mode</span>
+                </button>
+            </div>
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Search...">
+                    <button id="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <h2>Modules</h2>
+                <ul id="modules-list">
+                    <!-- Modules will be populated here -->
+                    <li class="active"><a href="#chapter-1">Chapter 1: Database Systems</a>
+                        <ul class="topics-list">
+                            <li><a href="#topic-1-1">Why Databases?</a></li>
+                            <li><a href="#topic-1-2">Data versus Information</a></li>
+                            <li><a href="#topic-1-3">Introducing the Database</a></li>
+                            <li><a href="#topic-1-4">Why Database Design Is Important</a></li>
+                            <li><a href="#topic-1-5">Evolution of File System Data Processing</a></li>
+                            <li><a href="#topic-1-6">Problems with File System Data Processing</a></li>
+                            <li><a href="#topic-1-7">Database Systems</a></li>
+                            <li><a href="#topic-1-8">Preparing for Your Database Professional Career</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#chapter-2">Chapter 2: Data Models</a>
+                        <ul class="topics-list">
+                            <li><a href="#topic-2-1">Data Modeling and Data Models</a></li>
+                            <li><a href="#topic-2-2">The Importance of Data Models</a></li>
+                            <li><a href="#topic-2-3">Data Model Basic Building Blocks</a></li>
+                            <li><a href="#topic-2-4">Business Rules</a></li>
+                            <li><a href="#topic-2-5">The Evolution of Data Models</a></li>
+                            <li><a href="#topic-2-6">Degrees of Data Abstraction</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#chapter-3">Chapter 3: The Relational Database Model</a>
+                        <ul class="topics-list">
+                            <li><a href="#topic-3-1">A Logical View of Data</a></li>
+                            <li><a href="#topic-3-2">Keys</a></li>
+                            <li><a href="#topic-3-3">Integrity Rules</a></li>
+                            <li><a href="#topic-3-4">Relational Algebra</a></li>
+                            <li><a href="#topic-3-5">The Data Dictionary and the System Catalog</a></li>
+                            <li><a href="#topic-3-6">Relationships within the Relational Database</a></li>
+                            <li><a href="#topic-3-7">Data Redundancy Revisited</a></li>
+                            <li><a href="#topic-3-8">Indexes</a></li>
+                            <li><a href="#topic-3-9">Codd's Relational Database Rules</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#chapter4">Chapter 4: Entity Relationship (ER) Modeling</a>
+                        <ul>
+                            <li><a href="#section-4-1">4-1 The Entity Relationship Model</a></li>
+                            <li><a href="#section-4-2">4-2 Entities</a></li>
+                            <li><a href="#section-4-3">4-3 Attributes</a></li>
+                            <li><a href="#section-4-4">4-4 Relationships</a></li>
+                            <li><a href="#section-4-5">4-5 Information Requirements</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#chapter5">Chapter 5: The Extended Entity Relationship Model</a>
+                        <ul>
+                            <li><a href="#section-5-1">5-1 The Extended Entity Relationship Model</a></li>
+                            <li><a href="#section-5-2">5-2 Entity Clustering</a></li>
+                            <li><a href="#section-5-3">5-3 Entity Integrity: Selecting Primary Keys</a></li>
+                            <li><a href="#section-5-4">5-4 Design Cases: Learning Flexible Database Design</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#chapter6">Chapter 6: Database Tables and Normalization</a>
+                        <ul>
+                            <li><a href="#section-6-1">6-1 Database Tables and Normalization</a></li>
+                            <li><a href="#section-6-2">6-2 The Need for Normalization</a></li>
+                            <li><a href="#section-6-3">6-3 The Normalization Process</a></li>
+                            <li><a href="#section-6-4">6-4 Improving the Design</a></li>
+                            <li><a href="#section-6-5">6-5 Surrogate Key Considerations</a></li>
+                            <li><a href="#section-6-6">6-6 Higher-Level Normal Forms</a></li>
+                            <li><a href="#section-6-7">6-7 Normalization and Database Design</a></li>
+                            <li><a href="#section-6-8">6-8 Denormalization</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="content" id="content">
+            <div class="content-header">
+                <h2 id="current-chapter">Chapter 1: Database Systems</h2>
+                <div class="content-nav">
+                    <button id="prev-chapter" disabled><i class="fas fa-arrow-left"></i> Previous</button>
+                    <button id="next-chapter">Next <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <div class="chapter-content">
+                <section id="chapter-1" class="chapter">
+                    <div class="chapter-intro">
+                        <h2>Chapter 1: Database Systems</h2>
+                        <p>This chapter introduces the fundamental concepts of database systems, explaining why databases are essential, the difference between data and information, and the importance of proper database design.</p>
+                    </div>
+
+                    <section id="topic-1-1" class="topic">
+                        <h3>1-1 Why Databases?</h3>
+                        <div class="topic-content">
+                            <p>In today's world, data is ubiquitous (abundant, global, everywhere) and pervasive (unescapable, prevalent, persistent). From birth to death, we generate and consume data. The trail of data starts with the birth certificate and continues all the way to a death certificate (and beyond!). In between, each individual produces and consumes enormous amounts of data. As you will see in this book, databases are the best way to store and manage data. Databases make data persistent and shareable in a secure way.</p>
+                            
+                            <p>Data is not only ubiquitous and pervasive; it is also essential for organizations to survive and prosper. Imagine trying to operate a business without knowing who your customers are, what products you are selling, who is working for you, who owes you money, and to whom you owe money. All businesses have to keep this type of data and much more. Just as important, they must have that data available to decision makers when necessary. It can be argued that the ultimate purpose of all business information systems is to help businesses use information as an organizational resource. At the heart of all of these systems are the collection, storage, aggregation, manipulation, dissemination, and management of data.</p>
+                            
+                            <p>Depending on the type of information system and the characteristics of the business, this data could vary from a few megabytes on just one or two topics to petabytes covering hundreds of topics within the business's internal and external environment. Telecommunications companies, such as Sprint and AT&T, are known to have systems that keep data on trillions of phone calls, with new data being added to the system at speeds up to 70,000 calls per second! Not only do these companies have to store and manage immense collections of data, but they must be able to find any given fact in that data quickly. Consider the case of Internet search staple Google. While Google is reluctant to disclose many details about its data storage specifications, it is estimated that the company responds to over 91 million searches per day across a collection of data that is several terabytes in size. Impressively, the results of these searches are available almost instantly.</p>
+                            
+                            <p>How can these businesses process this much data? How can they store it all, and then quickly retrieve just the facts that decision makers want to know, just when they want to know it? The answer is that they use databases. Databases, as explained in detail throughout this book, are specialized structures that allow computer-based systems to store, manage, and retrieve data very quickly. Virtually all modern business systems rely on databases. Therefore, a good understanding of how these structures are created and their proper use is vital for any information systems professional. Even if your career does not take you down the amazing path of database design and development, databases will be a key component of the systems that you use. In any case, you will probably make decisions in your career based on information generated from data. Thus, it is important that you know the difference between data and information.</p>
+                        </div>
+                    </section>
+
+                    <section id="topic-1-2" class="topic">
+                        <h3>1-2 Data versus Information</h3>
+                        <div class="topic-content">
+                            <p>To understand what drives database design, you must understand the difference between data and information. Data consists of raw facts. The word raw indicates that the facts have not yet been processed to reveal their meaning.</p>
+                            
+                            <div class="definition-box">
+                                <h4>Data</h4>
+                                <p>Raw facts that have not yet been processed to reveal their meaning.</p>
+                            </div>
+                            
+                            <div class="definition-box">
+                                <h4>Information</h4>
+                                <p>The result of processing raw data to reveal its meaning. Data processing can be as simple as organizing data to reveal patterns or as complex as making forecasts or drawing inferences using statistical modeling.</p>
+                            </div>
+                            
+                            <p>Information requires context to reveal meaning. For example, an average temperature reading of 105 degrees does not mean much unless you also know its context: Is this reading in degrees Fahrenheit or Celsius? Is this a machine temperature, a body temperature, or an outside air temperature? Information can be used as the foundation for decision making.</p>
+                            
+                            <p>Keep in mind that raw data must be properly formatted for storage, processing, and presentation. For example, dates might be stored in Julian calendar formats within the database, but displayed in a variety of formats, such as day-month-year or month/day/year, for different purposes.</p>
+                            
+                            <div class="key-points">
+                                <h4>Key Points:</h4>
+                                <ul>
+                                    <li>Data constitutes the building blocks of information.</li>
+                                    <li>Information is produced by processing data.</li>
+                                    <li>Information is used to reveal the meaning of data.</li>
+                                    <li>Accurate, relevant, and timely information is the key to good decision making.</li>
+                                    <li>Good decision making is the key to organizational survival in a global environment.</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="example-box">
+                                <h4>Example: Smartphone Location Data</h4>
+                                <p>In today's information-centric society, you use smartphones on a daily basis. These devices have advanced GPS functionality that constantly tracks your whereabouts. This data is stored and shared with various applications.</p>
+                                <p>When you get a new smartphone, you can use the map application to go places and to set up your home address. The GPS feature in your phone tracks your daily locations. In some cases, the information generated is very helpful: it can help you navigate to various locations and even to find where you parked your car.</p>
+                                <p>Furthermore, your smartphone may know more about your activities than you imagine. For example, suppose that every Wednesday night you go to the gym and play indoor soccer with your friends. Next Wednesday night, 20 minutes before you leave home, your phone pops up a message saying "19 minutes to [gym address]. Traffic is light." The phone has been storing GPS data on your movements to develop patterns based on days, times, and locations to generate this knowledge.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="topic-1-3" class="topic">
+                        <h3>1-3 Introducing the Database</h3>
+                        <div class="topic-content">
+                            <p>Efficient data management typically requires the use of a computer database.</p>
+                            
+                            <div class="definition-box">
+                                <h4>Database</h4>
+                                <p>A shared, integrated computer structure that stores a collection of:</p>
+                                <ul>
+                                    <li>End-user data—that is, raw facts of interest to the end user</li>
+                                    <li>Metadata, or data about data, through which the end-user data is integrated and managed</li>
+                                </ul>
+                            </div>
+                            
+                            <p>The metadata describes the data characteristics and the set of relationships that links the data found within the database. For example, the metadata component stores information such as the name of each data element, the type of values (numeric, dates, or text) stored on each data element, and whether the data element can be left empty. The metadata provides information that complements and expands the value and use of the data. In short, metadata presents a more complete picture of the data in the database. Given the characteristics of metadata, you might hear a database described as a "collection of self-describing data."</p>
+                            
+                            <div class="definition-box">
+                                <h4>Database Management System (DBMS)</h4>
+                                <p>A collection of programs that manages the database structure and controls access to the data stored in the database. In a sense, a database resembles a very well-organized electronic filing cabinet in which powerful software (the DBMS) helps manage the cabinet's contents.</p>
+                            </div>
+                            
+                            <h4>1-3a Role and Advantages of the DBMS</h4>
+                            <p>The DBMS serves as the intermediary between the user and the database. The database structure itself is stored as a collection of files, and the only way to access the data in those files is through the DBMS.</p>
+                            
+                            <p>Having a DBMS between the end user's applications and the database offers some important advantages:</p>
+                            
+                            <div class="key-points">
+                                <ul>
+                                    <li><strong>Improved data sharing.</strong> The DBMS helps create an environment in which end users have better access to more and better-managed data.</li>
+                                    <li><strong>Improved data security.</strong> The DBMS provides a framework for better enforcement of data privacy and security policies.</li>
+                                    <li><strong>Better data integration.</strong> Wider access to well-managed data promotes an integrated view of the organization's operations and a clearer view of the big picture.</li>
+                                    <li><strong>Minimized data inconsistency.</strong> The probability of data inconsistency is greatly reduced in a properly designed database.</li>
+                                    <li><strong>Improved data access.</strong> The DBMS makes it possible to produce quick answers to ad hoc queries.</li>
+                                    <li><strong>Improved decision making.</strong> Better-managed data and improved data access make it possible to generate better-quality information.</li>
+                                    <li><strong>Increased end-user productivity.</strong> The availability of data, combined with the tools that transform data into usable information, empowers end users to make quick, informed decisions.</li>
+                                </ul>
+                            </div>
+                            
+                            <h4>1-3b Types of Databases</h4>
+                            <p>A DBMS can be used to build many types of databases. Each database stores a particular collection of data and is used for a specific purpose. Databases can be classified by:</p>
+                            
+                            <ul>
+                                <li><strong>Number of users:</strong> Single-user (desktop database) or multiuser (workgroup database, enterprise database)</li>
+                                <li><strong>Location:</strong> Centralized database, distributed database, or cloud database</li>
+                                <li><strong>Type of data:</strong> General-purpose databases or discipline-specific databases</li>
+                                <li><strong>Usage and time sensitivity:</strong> Operational database (OLTP) or analytical database</li>
+                                <li><strong>Degree of structure:</strong> Structured data, semistructured data, or unstructured data</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section id="topic-1-4" class="topic">
+                        <h3>1-4 Why Database Design Is Important</h3>
+                        <div class="topic-content">
+                            <p>Database design refers to the activities that focus on the design of the database structure that will be used to store and manage end-user data. A database that meets all user requirements does not just happen; its structure must be designed carefully. In fact, database design is such a crucial aspect of working with databases that most of this book is dedicated to the development of good database design techniques. Even a good DBMS will perform poorly with a badly designed database.</p>
+                            
+                            <p>Data is one of an organization's most valuable assets. Data on customers, employees, orders, and receipts is all vital to the existence of a company. Tracking key growth and performance indicators are also vital to strategic and tactical plans to ensure future success; therefore, an organization's data must not be handled lightly or carelessly.</p>
+                            
+                            <div class="example-box">
+                                <h4>Example: Poor Database Design</h4>
+                                <p>Consider the data which illustrates the efforts of an organization to keep records about its employees and their skills. Some employees have not passed a certification test in any skill, while others have been certified in several skills. Some certified skills are shared by several employees, while other skills have no employees that hold those certifications.</p>
+                                
+                                <p>Based on a poor storage design, the following problems might occur:</p>
+                                <ul>
+                                    <li>It would be difficult to produce an alphabetical listing of employees based on their last names.</li>
+                                    <li>To determine how many employees are certified in a specific skill would require complex counting across multiple columns.</li>
+                                    <li>Redundant storage of skill names could lead to inconsistencies in spelling or abbreviation.</li>
+                                    <li>The structure would need to be changed if an employee gets certified in additional skills.</li>
+                                </ul>
+                                
+                                <p>A better design would decompose the data into related tables that contain all the same data but structured in a way that allows easy manipulation and querying.</p>
+                            </div>
+                            
+                            <p>Proper database design requires the designer to precisely identify the database's expected use. Designing a transactional database emphasizes accurate and consistent data and operational speed. Designing a data warehouse database emphasizes the use of historical and aggregated data.</p>
+                            
+                            <p>A well-designed database facilitates data management and generates accurate and valuable information. A poorly designed database is likely to become a breeding ground for difficult-to-trace errors that may lead to poor decision making, and poor decision making can lead to the failure of an organization. Database design is simply too important to be left to luck.</p>
+                        </div>
+                    </section>
+
+                    <section id="topic-1-5" class="topic">
+                        <h3>1-5 Evolution of File System Data Processing</h3>
+                        <div class="topic-content">
+                            <p>Understanding what a database is, what it does, and the proper way to use it can be clarified by considering what a database is not. A brief explanation of the evolution of file system data processing can be helpful in understanding the data access limitations that databases attempt to overcome.</p>
+
+                            <h4>1-5a Manual File Systems</h4>
+                            <p>Historically, data was kept in paper-and-pencil manual systems organized to facilitate the expected use of the data. Typically, this was accomplished through a system of file folders and filing cabinets.</p>
+
+                            <h4>1-5b Computerized File Systems</h4>
+                            <p>Generating reports from manual file systems was slow and cumbersome. Therefore, a data processing (DP) specialist was hired to create a computer-based system that would track data and produce required reports.</p>
+
+                            <div class="figure-box">
+                                <h4>Figure 1.7: Contents of the Customer File</h4>
+                                <img src="figure1-7.png" alt="Customer File Contents">
+                                <p class="caption">Example of a customer data file for a small insurance company</p>
+                            </div>
+
+                            <!-- Continue adding content for sections 1-6 through 1-8 similarly -->
+                        </div>
+                    </section>
+
+                    <section id="topic-1-6" class="topic">
+                        <h3>1-6 Problems with File System Data Processing</h3>
+                        <div class="topic-content">
+                            <p>The file system method of organizing and managing data was a definite improvement over the manual system, and the file system served a useful purpose in data management for over two decades. Nonetheless, many problems and limitations became evident in this approach.</p>
+
+                            <div class="key-points">
+                                <h4>Major Problems with File Systems:</h4>
+                                <ul>
+                                    <li><strong>Lengthy development times:</strong> Even the simplest data-retrieval task requires extensive programming.</li>
+                                    <li><strong>Difficulty of getting quick answers:</strong> Ad hoc queries are impossible.</li>
+                                    <li><strong>Complex system administration:</strong> System administration becomes more difficult as the number of files expands.</li>
+                                    <li><strong>Lack of security and limited data sharing:</strong> Security features are often inadequate.</li>
+                                    <li><strong>Extensive programming:</strong> Making changes to existing file structures is difficult.</li>
+                                </ul>
+                            </div>
+
+                            <h4>1-6a Structural and Data Dependence</h4>
+                            <p>A file system exhibits structural dependence, which means that access to a file is dependent on its structure. For example, adding a customer date-of-birth field to the CUSTOMER file would require significant program modifications.</p>
+
+                            <div class="definition-box">
+                                <h4>Data Dependence</h4>
+                                <p>Exists when all data access programs are subject to change when any of the file's data storage characteristics change.</p>
+                            </div>
+
+                            <h4>1-6b Data Redundancy</h4>
+                            <p>The file system's structure makes it difficult to combine data from multiple sources, and its lack of security renders the file system vulnerable to security breaches. The organizational structure promotes the storage of the same basic data in different locations.</p>
+
+                            <div class="definition-box">
+                                <h4>Data Redundancy</h4>
+                                <p>Exists when the same data is stored unnecessarily at different places.</p>
+                            </div>
+
+                            <h4>1-6c Data Anomalies</h4>
+                            <p>The dictionary defines anomaly as "an abnormality." Data anomalies can include:</p>
+                            <ul>
+                                <li><strong>Update anomalies:</strong> Changes must be made to the same data in multiple places</li>
+                                <li><strong>Insertion anomalies:</strong> New data requires dummy entries in related files</li>
+                                <li><strong>Deletion anomalies:</strong> Deleting data can unintentionally remove other needed data</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section id="topic-1-7" class="topic">
+                        <h3>1-7 Database Systems</h3>
+                        <div class="topic-content">
+                            <p>The problems inherent in file systems make using a database system very desirable. Unlike the file system, with its many separate and unrelated files, the database system consists of logically related data stored in a single logical data repository.</p>
+
+                            <div class="figure-box">
+                                <h4>Figure 1.9: The DBMS as an Interface</h4>
+                                <img src="DatabaseInterface.png" alt="DBMS Interface Diagram">
+                                <p class="caption">The DBMS provides numerous advantages over file system management by eliminating most data inconsistency, anomaly, and dependence problems.</p>
+                            </div>
+
+                            <h4>1-7a The Database System Environment</h4>
+                            <p>The term database system refers to an organization of components that define and regulate the collection, storage, management, and use of data within a database environment.</p>
+
+                            <div class="key-points">
+                                <h4>Five Major Components of a Database System:</h4>
+                                <ul>
+                                    <li><strong>Hardware:</strong> Physical devices including computers, storage devices, printers, network devices</li>
+                                    <li><strong>Software:</strong> Operating system software, DBMS software, application programs and utilities</li>
+                                    <li><strong>People:</strong> System administrators, database administrators, database designers, system analysts and programmers, end users</li>
+                                    <li><strong>Procedures:</strong> Instructions and rules that govern the design and use of the database system</li>
+                                    <li><strong>Data:</strong> The collection of facts stored in the database</li>
+                                </ul>
+                            </div>
+
+                            <h4>1-7b DBMS Functions</h4>
+                            <div class="definition-box">
+                                <h4>Key DBMS Functions:</h4>
+                                <ul>
+                                    <li><strong>Data dictionary management:</strong> Stores definitions of data elements and their relationships (metadata)</li>
+                                    <li><strong>Data storage management:</strong> Creates and manages complex structures for data storage</li>
+                                    <li><strong>Data transformation and presentation:</strong> Transforms entered data to conform to required data structures</li>
+                                    <li><strong>Security management:</strong> Enforces user security and data privacy</li>
+                                    <li><strong>Multiuser access control:</strong> Ensures multiple users can access the database concurrently</li>
+                                    <li><strong>Backup and recovery management:</strong> Provides backup and data recovery to ensure data safety</li>
+                                    <li><strong>Data integrity management:</strong> Promotes and enforces integrity rules</li>
+                                    <li><strong>Database access languages:</strong> Provides query language support (like SQL)</li>
+                                    <li><strong>Database communication interfaces:</strong> Accepts end-user requests via multiple interfaces</li>
+                                </ul>
+                            </div>
+
+                            <h4>1-7c Managing the Database System</h4>
+                            <p>The introduction of a database system provides a framework in which strict procedures and standards can be enforced. The role shifts from programming emphasis to managing data resources and administering complex database software.</p>
+
+                            <div class="example-box">
+                                <h4>Database System Challenges</h4>
+                                <ul>
+                                    <li>Increased costs for hardware, software, and skilled personnel</li>
+                                    <li>Management complexity across multiple technologies</li>
+                                    <li>Need for maintaining currency with updates and patches</li>
+                                    <li>Potential vendor dependence</li>
+                                    <li>Frequent upgrade/replacement cycles</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="topic-1-8" class="topic">
+                        <h3>1-8 Preparing for Your Database Professional Career</h3>
+                        <div class="topic-content">
+                            <p>In this chapter, you were introduced to the concepts of data, information, databases, and DBMSs. You also learned that, regardless of what type of database you use (OLTP, OLAP, or NoSQL), or what type of database environment you are working in (e.g., Oracle, Microsoft, IBM, or Hadoop), the success of a database system greatly depends on how well the database structure is designed.</p>
+
+                            <div class="key-points">
+                                <h4>Career Opportunities in Database Technology</h4>
+                                <div class="table-box">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Career Path</th>
+                                                <th>Description</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Database Administrator</td>
+                                                <td>Manages and maintains database systems, ensuring data security, performance, and availability</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Database Designer</td>
+                                                <td>Creates and optimizes database structures to meet business requirements</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Data Analyst</td>
+                                                <td>Analyzes data to provide business insights and support decision making</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <h4>Emerging Database Technologies</h4>
+                            <ul>
+                                <li><strong>Very large databases (VLDBs):</strong> Databases that support large amounts of data, usually in the petabyte range</li>
+                                <li><strong>Big Data databases:</strong> Products like Cassandra and BigTable using "columnar-database" technologies</li>
+                                <li><strong>In-memory databases:</strong> Databases that store most data in primary memory (RAM) for faster processing</li>
+                                <li><strong>Cloud databases:</strong> Database services that reside on the Internet rather than within organization's network</li>
+                            </ul>
+
+                            <div class="example-box">
+                                <h4>Example: Cloud Database Benefits</h4>
+                                <p>3M Health Information Systems used Amazon's AWS cloud database services to consolidate its multiple IT centers. This allowed them to:</p>
+                                <ul>
+                                    <li>Avoid buying, installing, and maintaining hardware</li>
+                                    <li>Reduce server provisioning time from 10 weeks to minutes</li>
+                                    <li>Scale processing and storage capabilities as needed</li>
+                                    <li>Be more responsive to customer needs</li>
+                                </ul>
+                            </div>
+
+                            <p>While database technologies can change quickly, the fundamental concepts and skills do not. After learning the database essentials in this book, you will be ready to apply your knowledge and skills to work with both traditional OLTP and OLAP systems as well as cutting-edge, complex database technologies.</p>
+                        </div>
+                    </section>
+                </section>
+
+                <section id="chapter-2">
+                    <div class="chapter-intro">
+                        <h2>Chapter 2: Data Models</h2>
+                        <p>This chapter introduces data modeling concepts and explores the evolution of major data models.</p>
+                    </div>
+
+                    <section id="topic-2-1" class="topic">
+                        <h3>2-1 Data Modeling and Data Models</h3>
+                        <div class="topic-content">
+                            <p>Database design focuses on how the database structure will be used to store and manage end-user data. Data modeling, the first step in designing a database, refers to the process of creating a specific data model for a determined problem domain.</p>
+
+                            <div class="definition-box">
+                                <h4>Key Terms</h4>
+                                <ul>
+                                    <li><strong>Problem domain:</strong> A clearly defined area within the real-world environment, with a well-defined scope and boundaries</li>
+                                    <li><strong>Data model:</strong> A relatively simple representation, usually graphical, of more complex real-world data structures</li>
+                                </ul>
+                            </div>
+
+                            <div class="note-box">
+                                <h4>Note:</h4>
+                                <p>The terms data model and database model are often used interchangeably. In this book, the term database model is used to refer to the implementation of a data model in a specific database system.</p>
+                            </div>
+
+                            <p>Data modeling is an iterative, progressive process. You start with a simple understanding of the problem domain, and as your understanding increases, so does the level of detail of the data model.</p>
+
+                            <div class="note-box">
+                                <h4>An implementation-ready data model should contain:</h4>
+                                <ul>
+                                    <li>A description of the data structure that will store the end-user data</li>
+                                    <li>A set of enforceable rules to guarantee the integrity of the data</li>
+                                    <li>A data manipulation methodology to support the real-world data transformations</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Add table 2.1 -->
+                    <div class="table-box">
+                        <h4>Table 2.1: Evolution of Major Data Models</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Generation</th>
+                                    <th>Time</th>
+                                    <th>Data Model</th>
+                                    <th>Examples</th>
+                                    <th>Comments</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>First</td>
+                                    <td>1960s-1970s</td>
+                                    <td>File system</td>
+                                    <td>VMS/VSAM</td>
+                                    <td>Used mainly on IBM mainframe systems<br>Managed records, not relationships</td>
+                                </tr>
+                                <tr>
+                                    <td>Second</td>
+                                    <td>1970s</td>
+                                    <td>Hierarchical and network</td>
+                                    <td>IMS, ADABAS, IDS-II</td>
+                                    <td>Early database systems<br>Navigational access</td>
+                                </tr>
+                                <tr>
+                                    <td>Third</td>
+                                    <td>Mid-1970s</td>
+                                    <td>Relational</td>
+                                    <td>DB2<br>Oracle<br>MS SQL Server<br>MySQL</td>
+                                    <td>Conceptual simplicity<br>Entity relationship (ER) modeling and support for relational data modeling</td>
+                                </tr>
+                                <tr>
+                                    <td>Fourth</td>
+                                    <td>Mid-1980s</td>
+                                    <td>Object-oriented<br>Object/relational</td>
+                                    <td>Versant<br>Objectivity/DB<br>DB2 UDB<br>Oracle</td>
+                                    <td>Object/relational supports object data types<br>Star Schema support for data warehousing<br>Web databases become common</td>
+                                </tr>
+                                <tr>
+                                    <td>Fifth</td>
+                                    <td>Mid-1990s</td>
+                                    <td>XML Hybrid<br>DBMS</td>
+                                    <td>dbXML<br>Tamino<br>DB2 UDB<br>Oracle<br>MS SQL Server<br>PostgreSQL</td>
+                                    <td>Unstructured data support<br>O/R model supports XML documents<br>Hybrid DBMS adds object front end to relational databases<br>Support large databases (terabyte size)</td>
+                                </tr>
+                                <tr>
+                                    <td>Emerging Models:<br>NoSQL</td>
+                                    <td>Early 2000s to present</td>
+                                    <td>Key-value store<br>Column store</td>
+                                    <td>SimpleDB (Amazon)<br>BigTable (Google)<br>Cassandra (Apache)<br>MongoDB<br>Riak</td>
+                                    <td>Distributed, highly scalable<br>High performance, fault tolerant<br>Very large storage (petabytes)<br>Suited for sparse data<br>Proprietary application programming interface (API)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <section id="topic-2-2" class="topic">
+                        <h3>2-2 The Importance of Data Models</h3>
+                        <div class="topic-content">
+                            <p>Data models can facilitate interaction among the designer, the applications programmer, and the end user. A well-developed data model can even foster improved understanding of the organization for which the database design is developed.</p>
+
+                            <div class="key-points">
+                                <h4>Different Views of Data</h4>
+                                <ul>
+                                    <li><strong>Company Manager:</strong> Enterprise-wide view of company data</li>
+                                    <li><strong>Department Manager:</strong> Focused view on department-specific data</li>
+                                    <li><strong>Applications Programmer:</strong> Concerned with data location, formatting, and reporting requirements</li>
+                                </ul>
+                            </div>
+
+                            <div class="example-box">
+                                <h4>Real-World Example</h4>
+                                <p>A client once remarked: "I created this business, I worked with this business for years, and this is the first time I've really understood how all the pieces really fit together."</p>
+                            </div>
+
+                            <p>When a good database blueprint is available, it does not matter that an applications programmer's view of the data is different from that of the manager or the end user. Conversely, when a good database blueprint is not available, problems are likely to ensue.</p>
+                        </div>
+                    </section>
+
+                    <section id="topic-2-3" class="topic">
+                        <h3>2-3 Data Model Basic Building Blocks</h3>
+                        <div class="topic-content">
+                            <div class="definition-box">
+                                <h4>Basic Building Blocks</h4>
+                                <ul>
+                                    <li><strong>Entities:</strong> Person, place, thing, concept, or event about which data will be collected</li>
+                                    <li><strong>Attributes:</strong> Characteristics of an entity</li>
+                                    <li><strong>Relationships:</strong> Associations among entities</li>
+                                    <li><strong>Constraints:</strong> Restrictions placed on the data</li>
+                                </ul>
+                            </div>
+
+                            <h4>Types of Relationships</h4>
+                            <div class="table-box">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Type</th>
+                                            <th>Notation</th>
+                                            <th>Example</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>One-to-many</td>
+                                            <td>1:M or 1..*</td>
+                                            <td>A painter creates many paintings, but each painting is created by only one painter</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Many-to-many</td>
+                                            <td>M:N or *..*</td>
+                                            <td>An employee may learn many skills, and each skill may be learned by many employees</td>
+                                        </tr>
+                                        <tr>
+                                            <td>One-to-one</td>
+                                            <td>1:1 or 1..1</td>
+                                            <td>Each store is managed by one employee, and each store manager manages only one store</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="note-box">
+                                <h4>Important Note:</h4>
+                                <p>Relationships are bidirectional. For example:</p>
+                                <ul>
+                                    <li>One CUSTOMER can generate many INVOICEs</li>
+                                    <li>Each of the many INVOICEs is generated by only one CUSTOMER</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="topic-2-4" class="topic">
+                        <h3>2-4 Business Rules</h3>
+                        <div class="topic-content">
+                            <div class="definition-box">
+                                <h4>Business Rule</h4>
+                                <p>A brief, precise, and unambiguous description of a policy, procedure, or principle within a specific organization.</p>
+                            </div>
+
+                            <div class="example-box">
+                                <h4>Examples of Business Rules</h4>
+                                <ul>
+                                    <li>A customer may generate many invoices.</li>
+                                    <li>An invoice is generated by only one customer.</li>
+                                    <li>A training session cannot be scheduled for fewer than 10 employees or for more than 30 employees.</li>
+                                </ul>
+                            </div>
+
+                            <h4>2-4a Discovering Business Rules</h4>
+                            <div class="key-points">
+                                <h4>Main Sources of Business Rules:</h4>
+                                <ul>
+                                    <li>Company managers</li>
+                                    <li>Policy makers</li>
+                                    <li>Department managers</li>
+                                    <li>Written documentation (procedures, standards, operations manuals)</li>
+                                    <li>End user interviews (with verification)</li>
+                                </ul>
+                            </div>
+
+                            <h4>2-4b Translating Business Rules into Data Model Components</h4>
+                            <div class="example-box">
+                                <h4>Translation Guidelines</h4>
+                                <ul>
+                                    <li>Nouns typically translate into entities</li>
+                                    <li>Verbs typically translate into relationships</li>
+                                    <li>Relationships are bidirectional - ask:
+                                        <ul>
+                                            <li>How many instances of B are related to one instance of A?</li>
+                                            <li>How many instances of A are related to one instance of B?</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <h4>2-4c Naming Conventions</h4>
+                            <p>Entity names should be descriptive of the objects in the business environment and use terminology familiar to users. Attribute names should be prefixed with the name or abbreviation of the entity in which they occur.</p>
+                        </div>
+                    </section>
+
+                    <section id="topic-2-5" class="topic">
+                        <h3>2-5 The Evolution of Data Models</h3>
+                        <div class="topic-content">
+                            <p>The quest for better data management has led to several models that attempt to resolve the previous model's critical shortcomings and to provide solutions to ever-evolving data management needs.</p>
+
+                            <h4>2-5a Hierarchical and Network Models</h4>
+                            <div class="definition-box">
+                                <h4>Key Concepts</h4>
+                                <ul>
+                                    <li><strong>Hierarchical Model:</strong> Basic logical structure represented by an upside-down tree with parent-child relationships</li>
+                                    <li><strong>Network Model:</strong> Allows a record to have more than one parent, representing complex data relationships</li>
+                                </ul>
+                            </div>
+
+                            <h4>2-5b The Relational Model</h4>
+                            <div class="note-box">
+                                <h4>Important Note:</h4>
+                                <p>Introduced in 1970 by E. F. Codd, the relational model represented a major breakthrough for both users and designers. Think of it as an "automatic transmission" database replacing the "standard transmission" databases that preceded it.</p>
+                            </div>
+
+                            <div class="figure-box">
+                                <h4>Figure 2.1: Sample Relational Tables</h4>
+                                <img src="relational-tables.png" alt="Sample Relational Tables">
+                                <p class="caption">Example of related CUSTOMER and AGENT tables sharing a common attribute (AGENT_CODE)</p>
+                            </div>
+
+                            <h4>2-5c The Entity Relationship Model</h4>
+                            <div class="topic-content">
+                                <p>The ER model has become a widely accepted standard for data modeling. Peter Chen first introduced it in 1976, and its graphical representation quickly became popular because it complemented the relational data model concepts.</p>
+
+                                <div class="definition-box">
+                                    <h4>ER Model Components</h4>
+                                    <ul>
+                                        <li><strong>Entity:</strong> Represented by a rectangle in ERD, contains a noun name in capital letters</li>
+                                        <li><strong>Attributes:</strong> Describe characteristics of the entity</li>
+                                        <li><strong>Relationships:</strong> Describe associations between entities using verbs</li>
+                                    </ul>
+                                </div>
+
+                                <div class="figure-box">
+                                    <h4>Figure 2.3: Different Types of Relationships</h4>
+                                    <img src="relationship-notations.png" alt="ER Relationship Notations">
+                                    <p class="caption">Three common notations: Chen, Crow's Foot, and UML class diagram notation</p>
+                                </div>
+                            </div>
+
+                            <h4>2-5d The Object-Oriented Model</h4>
+                            <div class="topic-content">
+                                <p>The OODM reflects a different way to define and use entities. An object includes data, relationships between facts within the object, and information about relationships with other objects.</p>
+
+                                <div class="key-points">
+                                    <h4>Object-Oriented Components</h4>
+                                    <ul>
+                                        <li><strong>Object:</strong> Abstraction of a real-world entity</li>
+                                        <li><strong>Attributes:</strong> Properties of an object</li>
+                                        <li><strong>Classes:</strong> Collections of similar objects</li>
+                                        <li><strong>Methods:</strong> Procedures that define object behavior</li>
+                                        <li><strong>Inheritance:</strong> Ability to inherit attributes and methods from parent classes</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <h4>2-5e Object/Relational and XML</h4>
+                            <div class="topic-content">
+                                <p>The extended relational data model (ERDM) adds many OO features within the simpler relational database structure. Most modern relational databases can be classified as object/relational.</p>
+
+                                <div class="example-box">
+                                    <h4>O/R DBMS Success Factors</h4>
+                                    <ul>
+                                        <li>Conceptual simplicity</li>
+                                        <li>Data integrity</li>
+                                        <li>Easy-to-use query language</li>
+                                        <li>High transaction performance</li>
+                                        <li>High availability</li>
+                                        <li>Security</li>
+                                        <li>Scalability</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <h4>2-5f Emerging Data Models: Big Data and NoSQL</h4>
+                            <div class="topic-content">
+                                <div class="definition-box">
+                                    <h4>The 3 Vs of Big Data</h4>
+                                    <ul>
+                                        <li><strong>Volume:</strong> Amount of data being stored</li>
+                                        <li><strong>Velocity:</strong> Speed of data growth and processing needs</li>
+                                        <li><strong>Variety:</strong> Different types and formats of data</li>
+                                    </ul>
+                                </div>
+
+                                <div class="key-points">
+                                    <h4>NoSQL Database Characteristics</h4>
+                                    <ul>
+                                        <li>Not based on relational model</li>
+                                        <li>Support highly distributed architectures</li>
+                                        <li>High scalability and availability</li>
+                                        <li>Support for sparse data</li>
+                                        <li>Performance over transaction consistency</li>
+                                    </ul>
+                                </div>
+
+                                <div class="example-box">
+                                    <h4>Big Data Technologies</h4>
+                                    <ul>
+                                        <li><strong>Hadoop:</strong> Open-source framework for distributed storage and processing</li>
+                                        <li><strong>NoSQL Databases:</strong> Alternative to traditional relational databases for specific use cases</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <h4>2-5g Data Models: A Summary</h4>
+                            <div class="topic-content">
+                                <p>The evolution of DBMSs has always been driven by the search for new ways of modeling and managing increasingly complex real-world data.</p>
+
+                                <div class="key-points">
+                                    <h4>Characteristics of Successful Data Models</h4>
+                                    <ul>
+                                        <li>Conceptual simplicity</li>
+                                        <li>Semantic completeness</li>
+                                        <li>Clear representation of the real world</li>
+                                        <li>Consistency and integrity</li>
+                                        <li>Easy to use and understand</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="topic-2-6" class="topic">
+                        <h3>2-6 Degrees of Data Abstraction</h3>
+                        <div class="topic-content">
+                            <p>The ANSI/SPARC architecture defines three levels of data abstraction: external, conceptual, and internal. A fourth level, the physical model, addresses physical-level implementation details.</p>
+
+                            <div class="figure-box">
+                                <h4>Figure 2.6: Levels of Data Abstraction</h4>
+                                <img src="data-abstraction.png" alt="Levels of Data Abstraction">
+                                <p class="caption">The ANSI/SPARC framework with the addition of a physical model</p>
+                            </div>
+
+                            <h4>2-6a The External Model</h4>
+                            <div class="definition-box">
+                                <h4>Key Concepts</h4>
+                                <ul>
+                                    <li>Represents end users' view of the data environment</li>
+                                    <li>Each business unit uses a subset of the overall data</li>
+                                    <li>External schema: specific representation of an external view</li>
+                                </ul>
+                            </div>
+
+                            <div class="example-box">
+                                <h4>Advantages of External Views</h4>
+                                <ul>
+                                    <li>Easy to identify specific data for business operations</li>
+                                    <li>Provides feedback about model adequacy</li>
+                                    <li>Helps ensure security constraints</li>
+                                    <li>Simplifies application program development</li>
+                                </ul>
+                            </div>
+
+                            <h4>2-6b The Conceptual Model</h4>
+                            <div class="key-points">
+                                <h4>Characteristics</h4>
+                                <ul>
+                                    <li>Represents global view of entire database</li>
+                                    <li>Integrates all external views</li>
+                                    <li>Independent of both hardware and software</li>
+                                    <li>Basis for identification and high-level description of main data objects</li>
+                                </ul>
+                            </div>
+
+                            <h4>2-6c The Internal Model</h4>
+                            <p>The internal model maps the conceptual model to the DBMS. It represents the database as "seen" by the DBMS.</p>
+
+                            <div class="key-points">
+                                <h4>Key Features</h4>
+                                <ul>
+                                    <li>Software dependent but hardware independent</li>
+                                    <li>Requires detailed knowledge of DBMS software</li>
+                                    <li>Changes in DBMS software may require changes to internal model</li>
+                                </ul>
+                            </div>
+
+                            <h4>2-6d The Physical Model</h4>
+                            <div class="definition-box">
+                                <h4>Characteristics</h4>
+                                <ul>
+                                    <li>Operates at lowest level of abstraction</li>
+                                    <li>Describes how data is saved on storage media</li>
+                                    <li>Both software and hardware dependent</li>
+                                    <li>Requires knowledge of physical storage devices and access methods</li>
+                                </ul>
+                            </div>
+
+                            <div class="table-box">
+                                <h4>Table 2.4: Summary of Data Abstraction Levels</h4>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Level</th>
+                                            <th>Description</th>
+                                            <th>Dependencies</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>External</td>
+                                            <td>End-user view of data</td>
+                                            <td>Independent of hardware/software</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Conceptual</td>
+                                            <td>Organization's view of data</td>
+                                            <td>Independent of hardware/software</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Internal</td>
+                                            <td>DBMS view of data</td>
+                                            <td>Software dependent, hardware independent</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Physical</td>
+                                            <td>Storage view of data</td>
+                                            <td>Hardware and software dependent</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </section>
+                </section>
+
+                <section id="chapter-3">
+                    <div class="chapter-intro">
+                        <h2>Chapter 3: The Relational Database Model</h2>
+                        <p>This chapter explores the relational database model, its logical view of data, and the fundamental concepts that make it work.</p>
+                    </div>
+
+                    <section id="topic-3-1" class="topic">
+                        <h3>3-1 A Logical View of Data</h3>
+                        <div class="topic-content">
+                            <p>In Chapter 1, you learned that a database stores and manages both data and metadata. The relational data model changed database design by allowing designers to focus on the logical representation of the data and its relationships, rather than on the physical storage details.</p>
+
+                            <div class="note-box">
+                                <h4>Analogy</h4>
+                                <p>The relational database uses an automatic transmission to relieve you of the need to manipulate clutch pedals and gearshifts. In short, the relational model enables you to view data logically rather than physically.</p>
+                            </div>
+
+                            <h4>3-1a Tables and Their Characteristics</h4>
+                            <p>The logical view of the relational database is facilitated by the creation of data relationships based on a logical construct known as a relation. Because a relation is a mathematical construct, end users find it much easier to think of a relation as a table.</p>
+
+                            <div class="table-box">
+                                <h4>Table 3.1: Characteristics of a Relational Table</h4>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>A table is perceived as a two-dimensional structure composed of rows and columns.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Each table row (tuple) represents a single entity occurrence within the entity set.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Each table column represents an attribute, and each column has a distinct name.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>Each intersection of a row and column represents a single data value.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>All values in a column must conform to the same data format.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td>Each column has a specific range of values known as the attribute domain.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>7</td>
+                                            <td>The order of the rows and columns is immaterial to the DBMS.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>8</td>
+                                            <td>Each table must have an attribute or combination of attributes that uniquely identifies each row.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="topic-3-2" class="topic">
+                        <h3>3-2 Keys</h3>
+                        <div class="topic-content">
+                            <p>In the relational model, keys are important because they are used to ensure that each row in a table is uniquely identifiable. They are also used to establish relationships among tables and to ensure the integrity of the data.</p>
+
+                            <h4>3-2a Dependencies</h4>
+                            <div class="definition-box">
+                                <h4>Key Concepts</h4>
+                                <ul>
+                                    <li><strong>Determination:</strong> The state in which knowing the value of one attribute makes it possible to determine the value of another</li>
+                                    <li><strong>Functional Dependence:</strong> When the value of one or more attributes determines the value of one or more other attributes</li>
+                                    <li><strong>Determinant:</strong> The attribute whose value determines another</li>
+                                    <li><strong>Dependent:</strong> The attribute whose value is determined by the other attribute</li>
+                                </ul>
+                            </div>
+
+                            <div class="example-box">
+                                <h4>Example of Functional Dependency</h4>
+                                <p>STU_NUM → STU_LNAME means that STU_NUM functionally determines STU_LNAME, and STU_LNAME is functionally dependent on STU_NUM.</p>
+                            </div>
+
+                            <h4>3-2b Types of Keys</h4>
+                            <div class="key-points">
+                                <h4>Key Classifications:</h4>
+                                <ul>
+                                    <li><strong>Composite Key:</strong> A key composed of more than one attribute</li>
+                                    <li><strong>Superkey:</strong> A key that can uniquely identify any row in the table</li>
+                                    <li><strong>Candidate Key:</strong> A minimal superkey (no unnecessary attributes)</li>
+                                    <li><strong>Primary Key:</strong> The candidate key chosen to uniquely identify rows in a table</li>
+                                    <li><strong>Secondary Key:</strong> A key used strictly for data retrieval purposes</li>
+                                    <li><strong>Foreign Key:</strong> A primary key from one table that appears in another table</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="topic-3-3" class="topic">
+                        <h3>3-3 Integrity Rules</h3>
+                        <div class="topic-content">
+                            <div class="table-box">
+                                <h4>Table 3.4: Relational Database Integrity Rules</h4>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Rule</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Entity Integrity</td>
+                                            <td>No primary key attribute can be null; each row must have a unique identity</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Referential Integrity</td>
+                                            <td>A foreign key must match a primary key value in the related table or be null</td>
+                                        </tr>
+                                        <tr>
+                                            <td>NOT NULL Constraint</td>
+                                            <td>Ensures that a column cannot have NULL value</td>
+                                        </tr>
+                                        <tr>
+                                            <td>UNIQUE Constraint</td>
+                                            <td>Ensures no duplicate values exist in a column</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="note-box">
+                                <h4>Important Note about Nulls</h4>
+                                <p>A null is no value at all. It does not mean a zero or a space. A null is created when you press the Enter key or the Tab key to move to the next entry without making an entry of any kind. Pressing the Spacebar creates a blank (or a space).</p>
+                            </div>
+
+                            <div class="figure-box">
+                                <h4>Figure 3.3: Integrity Rules Example</h4>
+                                <img src="integrity-rules.png" alt="Database Integrity Rules Example">
+                                <p class="caption">Example showing both entity and referential integrity in action</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="topic-3-4" class="topic">
+                        <h3>3-4 Relational Algebra</h3>
+                        <div class="topic-content">
+                            <p>The data in relational tables is of limited value unless the data can be manipulated to generate useful information. Relational algebra defines the theoretical way of manipulating table contents using relational operators.</p>
+
+                            <div class="note-box">
+                                <h4>Relational Completeness</h4>
+                                <p>The degree of relational completeness can be defined by the extent to which relational algebra is supported. To be considered minimally relational, the DBMS must support the key relational operators SELECT, PROJECT, and JOIN.</p>
+                            </div>
+
+                            <h4>3-4a Formal Definitions and Terminology</h4>
+                            <div class="definition-box">
+                                <h4>Key Terms</h4>
+                                <ul>
+                                    <li><strong>Relation:</strong> The data you see in your tables</li>
+                                    <li><strong>Relvar:</strong> A variable that holds a relation (table structure)</li>
+                                    <li><strong>Heading:</strong> Contains the names of the attributes</li>
+                                    <li><strong>Body:</strong> Contains the relation</li>
+                                </ul>
+                            </div>
+
+                            <h4>3-4b Relational Set Operators</h4>
+                            <div class="key-points">
+                                <h4>Basic Operators:</h4>
+                                <ul>
+                                    <li><strong>SELECT (σ):</strong> Yields values for all rows that satisfy a given condition</li>
+                                    <li><strong>PROJECT (π):</strong> Yields all values for selected attributes</li>
+                                    <li><strong>UNION (∪):</strong> Combines all rows from two tables, excluding duplicates</li>
+                                    <li><strong>INTERSECT (∩):</strong> Yields only rows that appear in both tables</li>
+                                    <li><strong>DIFFERENCE (-):</strong> Yields rows in one table not found in another</li>
+                                    <li><strong>PRODUCT (×):</strong> Yields all possible pairs of rows from two tables</li>
+                                    <li><strong>JOIN (⋈):</strong> Combines information from two or more tables</li>
+                                    <li><strong>DIVIDE (÷):</strong> Used for complex queries involving "all" conditions</li>
+                                </ul>
+                            </div>
+
+                            <div class="example-box">
+                                <h4>Example of JOIN Operation</h4>
+                                <p>A natural join links tables by selecting only the rows with common values in their common attributes. For example:</p>
+                                <code>CUSTOMER ⋈ AGENT</code>
+                                <p>This would combine customer and agent data based on matching AGENT_CODE values.</p>
+                            </div>
+
+                            <div class="figure-box">
+                                <h4>Figure 3.4: SELECT Operation Example</h4>
+                                <img src="select-operation.png" alt="Example of SELECT Operation
+                                <p class="caption">SELECT yields a horizontal subset of a table based on specified conditions</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="topic-3-5" class="topic">
+                        <h3>3-5 The Data Dictionary and the System Catalog</h3>
+                        <div class="topic-content">
+                            <p>The data dictionary provides a detailed description of all tables in the database created by the user and designer. It contains metadata—data about data.</p>
+
+                            <div class="table-box">
+                                <h4>Table 3.6: Sample Data Dictionary</h4>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Table Name</th>
+                                            <th>Attribute Name</th>
+                                            <th>Data Type</th>
+                                            <th>Length</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>CUSTOMER</td>
+                                            <td>CUS_CODE</td>
+                                            <td>NUMBER</td>
+                                            <td>5</td>
+                                            <td>Customer number (PK)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>CUSTOMER</td>
+                                            <td>CUS_LNAME</td>
+                                            <td>VARCHAR</td>
+                                            <td>15</td>
+                                            <td>Customer last name</td>
+                                        </tr>
+                                        <tr>
+                                            <td>CUSTOMER</td>
+                                            <td>CUS_AREACODE</td>
+                                            <td>CHAR</td>
+                                            <td>3</td>
+                                            <td>Customer area code</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="note-box">
+                                <h4>Important Notes:</h4>
+                                <ul>
+                                    <li>Telephone area codes are stored as CHAR(3) since they're not used arithmetically</li>
+                                    <li>Names use VARCHAR since they don't conform to a standard length</li>
+                                    <li>Character data are shown as left-aligned</li>
+                                </ul>
+                            </div>
+
+                            <h4>System Catalog</h4>
+                            <div class="key-points">
+                                <h4>Contains Information About:</h4>
+                                <ul>
+                                    <li>Table names and creators</li>
+                                    <li>Creation dates</li>
+                                    <li>Number of columns in each table</li>
+                                    <li>Data types for each column</li>
+                                    <li>Index filenames</li>
+                                    <li>Index creators</li>
+                                    <li>Authorized users</li>
+                                    <li>Access privileges</li>
+                                </ul>
+                            </div>
+
+                            <div class="definition-box">
+                                <h4>Key Terms to Avoid</h4>
+                                <ul>
+                                    <li><strong>Homonyms:</strong> Using the same name to label different attributes (e.g., using C_NAME for both customer name and consultant name)</li>
+                                    <li><strong>Synonyms:</strong> Using different names to describe the same attribute (e.g., car and auto)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="topic-3-6" class="topic">
+                        <h3>3-6 Relationships within the Relational Database</h3>
+                        <div class="topic-content">
+                            <p>Relational databases use common attributes to implement relationships between tables through foreign keys. The type of relationship determines which primary key to use as a foreign key.</p>
+
+                            <div class="key-points">
+                                <h4>Key Points:</h4>
+                                <ul>
+                                    <li>The 1:M relationship is the relational modeling ideal</li>
+                                    <li>The 1:1 relationship should be rare in any relational database design</li>
+                                    <li>M:N relationships must be transformed into two 1:M relationships</li>
+                                </ul>
+                            </div>
+
+                            <h4>3-6a The 1:M Relationship</h4>
+                            <div class="example-box">
+                                <h4>Example: PAINTER and PAINTING</h4>
+                                <ul>
+                                    <li>Each painting was created by one and only one painter</li>
+                                    <li>Each painter could have created many paintings</li>
+                                    <li>The primary key of the "1" side (PAINTER_NUM) becomes a foreign key in the "many" side (PAINTING table)</li>
+                                </ul>
+                            </div>
+
+                            <h4>3-6b The 1:1 Relationship</h4>
+                            <div class="definition-box">
+                                <h4>Characteristics:</h4>
+                                <p>One entity in a 1:1 relationship can be related to only one other entity, and vice versa. For example, one department chair can chair only one department, and one department can have only one chair.</p>
+                            </div>
+
+                            <h4>3-6c The M:N Relationship</h4>
+                            <div class="note-box">
+                                <h4>Important Note:</h4>
+                                <p>A many-to-many (M:N) relationship is not supported directly in the relational environment. It must be implemented by creating a new composite entity (bridge table) that creates two 1:M relationships with the original entities.</p>
+                            </div>
+
+                            <div class="figure-box">
+                                <h4>Figure 3.24: Wrong Implementation of M:N Relationship</h4>
+                                <img src="wrong-mn-relationship.png" alt="Wrong Implementation of M:N Relationship">
+                                <p class="caption">This implementation creates redundancies and makes relational operations complex</p>
+                            </div>
+
+                            <div class="example-box">
+                                <h4>Problems with Direct M:N Implementation:</h4>
+                                <ul>
+                                    <li>Creates many redundancies (e.g., repeated student data)</li>
+                                    <li>Makes relational operations complex and error-prone</li>
+                                    <li>Can lead to update, insertion, and deletion anomalies</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="topic-3-7" class="topic">
+                        <h3>3-7 Data Redundancy Revisited</h3>
+                        <div class="topic-content">
+                            <p>In Chapter 1, you learned that data redundancy leads to data anomalies, which can destroy the effectiveness of the database. The proper use of foreign keys is crucial to controlling data redundancy, although they do not totally eliminate the problem.</p>
+
+                            <div class="note-box">
+                                <h4>Test of Redundancy</h4>
+                                <p>The real test of redundancy is not how many copies of a given attribute are stored, but whether the elimination of an attribute will eliminate information. If you delete an attribute and the original information can still be generated through relational algebra, the inclusion of that attribute would be redundant.</p>
+                            </div>
+
+                            <div class="example-box">
+                                <h4>Example: Planned Redundancy in Invoicing</h4>
+                                <p>Consider a small invoicing system with CUSTOMER, PRODUCT, INVOICE, and LINE tables:</p>
+                                <ul>
+                                    <li>Product price appears in both PRODUCT and LINE tables</li>
+                                    <li>This apparent redundancy maintains historical accuracy</li>
+                                    <li>If price only existed in PRODUCT, historical sales calculations would be incorrect when prices change</li>
+                                </ul>
+                            </div>
+
+                            <div class="figure-box">
+                                <h4>Figure 3.29: Sample Invoice System Tables</h4>
+                                <img src="invoice-system.png" alt="Invoice System Tables">
+                                <p class="caption">Tables showing the relationships between customers, products, invoices, and line items</p>
+                            </div>
+
+                            <div class="key-points">
+                                <h4>Important Considerations:</h4>
+                                <ul>
+                                    <li>Some redundancies are designed as part of the system to ensure:
+                                        <ul>
+                                            <li>Transaction speed</li>
+                                            <li>Information requirements</li>
+                                            <li>Historical accuracy</li>
+                                        </ul>
+                                    </li>
+                                    <li>Proper implementation and careful control limit potential damage from necessary redundancies</li>
+                                    <li>Data warehousing design requires carefully defined and controlled redundancies</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="topic-3-8" class="topic">
+                        <h3>3-8 Indexes</h3>
+                        <div class="topic-content">
+                            <p>An index is an orderly arrangement used to logically access rows in a table. From a conceptual point of view, an index is composed of an index key and a set of pointers.</p>
+
+                            <div class="example-box">
+                                <h4>Library Analogy</h4>
+                                <p>Just as a library catalog helps locate books quickly without searching through every book, database indexes help locate data efficiently without scanning every row in a table.</p>
+                            </div>
+
+                            <div class="definition-box">
+                                <h4>Key Components</h4>
+                                <ul>
+                                    <li><strong>Index Key:</strong> The reference point for the index</li>
+                                    <li><strong>Pointers:</strong> Direct to the location of the data identified by the key</li>
+                                    <li><strong>Unique Index:</strong> Index where each key can have only one pointer value</li>
+                                </ul>
+                            </div>
+
+                            <div class="figure-box">
+                                <h4>Figure 3.31: Index Example</h4>
+                                <img src="index-example.png" alt="Database Index Example">
+                                <p class="caption">Example showing how PAINTER_NUM index points to multiple records in the PAINTING table</p>
+                            </div>
+
+                            <div class="key-points">
+                                <h4>Index Uses:</h4>
+                                <ul>
+                                    <li>Retrieve data more efficiently</li>
+                                    <li>Retrieve data ordered by specific attributes</li>
+                                    <li>Automatically enforce primary key constraints</li>
+                                    <li>Support composite keys (multiple attributes)</li>
+                                </ul>
+                            </div>
+
+                            <div class="note-box">
+                                <h4>Important Notes:</h4>
+                                <ul>
+                                    <li>A table can have many indexes</li>
+                                    <li>Each index is associated with only one table</li>
+                                    <li>The DBMS automatically creates a unique index for primary keys</li>
+                                    <li>Index creation is typically done with simple SQL commands</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="topic-3-9" class="topic">
+                        <h3>3-9 Codd's Relational Database Rules</h3>
+                        <div class="topic-content">
+                            <p>In 1985, Dr. E. F. Codd published a list of 12 rules to define a relational database system. He published the list out of concern that many vendors were marketing products as "relational" even though those products did not meet minimum relational standards.</p>
+
+                            <div class="table-box">
+                                <h4>Table 3.8: Codd's 12 Rules</h4>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Rule</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1. Information Rule</td>
+                                            <td>All information in the database must be represented in one and only one way—as values in a table.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2. Guaranteed Access Rule</td>
+                                            <td>All data must be accessible without ambiguity. This rule is essentially a restatement of the primary key requirement.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3. Systematic Treatment of Nulls</td>
+                                            <td>The DBMS must allow each field to remain null (or empty). It must provide for a systematic treatment of null values.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>4. Active Online Catalog</td>
+                                            <td>The system must support an online, inline, relational system catalog.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>5. Comprehensive Data Sublanguage</td>
+                                            <td>The system must support at least one relational language that has linear syntax, can be used interactively and in application programs, and supports data definition, manipulation, integrity rules, authorization, and transaction boundaries.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>6. View Updating Rule</td>
+                                            <td>All views that are theoretically updatable must be updatable by the system.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>7. High-Level Insert, Update, Delete</td>
+                                            <td>The system must support set-level insert, update, and delete operators.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>8. Physical Data Independence</td>
+                                            <td>Application programs and ad hoc activities must remain unimpaired when physical access methods or storage structures are altered.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>9. Logical Data Independence</td>
+                                            <td>Application programs and ad hoc activities must remain unimpaired when changes are made to the logical structure of the database.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>10. Integrity Independence</td>
+                                            <td>Integrity constraints must be specified separately from application programs and stored in the catalog.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>11. Distribution Independence</td>
+                                            <td>The data manipulation language of the relational system must not require the user to know the physical location or distribution strategy of the data.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>12. Nonsubversion Rule</td>
+                                            <td>If the system provides a low-level (record-at-a-time) interface, that interface cannot be used to subvert the system.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="note-box">
+                                <h4>Important Note</h4>
+                                <p>Even the dominant database vendors do not fully support all 12 rules. These rules serve as a frame of reference for what a truly relational database should be.</p>
+                            </div>
+                        </div>
+                    </section>
+                </section>
+
+                <section id="chapter-4-entity-relationship-modeling" class="chapter">
+                    <div class="chapter-intro">
+                        <h2 id="chapter4">Chapter 4: Entity Relationship (ER) Modeling</h2>
+                        <p>This chapter explores the Entity Relationship Model (ERM), which forms the basis for database design through Entity Relationship Diagrams (ERDs). We'll examine the components, relationships, and best practices for creating effective database designs.</p>
+                    </div>
+
+                    <section id="topic-4-1" class="topic">
+                        <h3 id="section-4-1">4-1 The Entity Relationship Model</h3>
+                        <div class="topic-content">
+                            <p>Recall from Chapter 2, Data Models, and Chapter 3, The Relational Database Model, that the entity relationship model (ERM) forms the basis of an ERD. The ERD represents the conceptual database as viewed by the end user. ERDs depict the database's main components: entities, attributes, and relationships.</p>
+                            
+                            <p>Because an entity represents a real-world object, the words entity and object are often used interchangeably. Thus, the entities (objects) of the Tiny College database design developed in this chapter include students, classes, teachers, and classrooms.</p>
+
+                            <p>In Chapter 2, you also learned about the various notations used with ERDs—the original Chen notation and the newer Crow's Foot and UML notations. The first two notations are used at the beginning of this chapter to introduce some basic ER modeling concepts. Some conceptual database modeling concepts can be expressed only using the Chen notation.</p>
+
+                            <div class="key-points">
+                                <h4>Key Notation Characteristics:</h4>
+                                <ul>
+                                    <li>The Chen notation favors conceptual modeling.</li>
+                                    <li>The Crow's Foot notation favors a more implementation-oriented approach.</li>
+                                    <li>The UML notation can be used for both conceptual and implementation modeling.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="topic-4-1a" class="topic">
+                        <h3 id="section-4-2">4-2 Entities</h3>
+                        <div class="topic-content">
+                            <p>An entity is an object of interest to the end user. At the ER modeling level, an entity actually refers to the entity set and not to a single entity occurrence. In other words, an entity in the ERM corresponds to a table—not to a row—in the relational environment.</p>
+                            
+                            <p>The ERM refers to a table row as an entity instance or entity occurrence. In the Chen, Crow's Foot, and UML notations, an entity is represented by a rectangle that contains the entity's name. The entity name, a noun, is usually written in all capital letters.</p>
+
+                            <div class="note-box">
+                                <h4>Online Content</h4>
+                                <p>To learn how to create ER diagrams with the help of modeling software, go to www.cengage.com:</p>
+                                <ul>
+                                    <li>Appendix A, Designing Databases with Lucidchart</li>
+                                    <li>Appendix H, Unified Modeling Language (UML)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="topic-4-1b" class="topic">
+                        <h3 id="section-4-3">4-3 Attributes</h3>
+                        <div class="topic-content">
+                            <p>Attributes are characteristics of entities. For example, the STUDENT entity includes the attributes STU_LNAME, STU_FNAME, and STU_INITIAL, among many others. In the original Chen notation, attributes are represented by ovals and are connected to the entity rectangle with a line.</p>
+
+                            <h4>Required and Optional Attributes</h4>
+                            <p>A required attribute is an attribute that must have a value; in other words, it cannot be left empty. As shown in Figure 4.1, the two boldfaced attributes in the Crow's Foot notation indicate that data entry will be required. STU_LNAME and STU_FNAME require data entries because all students are assumed to have a last name and a first name.</p>
+
+                            <h4>Domains</h4>
+                            <p>Attributes have a domain. A domain is the set of possible values for a given attribute. For example, the domain for a grade point average (GPA) attribute is written (0,4) because the lowest possible GPA value is 0 and the highest possible value is 4.</p>
+
+                            <h4>Identifiers (Primary Keys)</h4>
+                            <p>The ERM uses identifiers—one or more attributes that uniquely identify each entity instance. In the relational model, entities are mapped to tables, and the entity identifier is mapped as the table's primary key (PK).</p>
+
+                            <h4>Composite Identifiers</h4>
+                            <p>Ideally, an entity identifier is composed of only a single attribute. For example, the table in Figure 4.2 uses a single-attribute primary key named CLASS_CODE. However, it is possible to use a composite identifier, a primary key composed of more than one attribute.</p>
+
+                            <div class="note-box">
+                                <h4>Course vs. Class Distinction</h4>
+                                <p>Remember that Chapter 3 made a commonly accepted distinction between COURSE and CLASS. A CLASS constitutes a specific time and place of a COURSE offering. A class is defined by the course description and its time and place, or section.</p>
+                                <p>Consider a professor who teaches Database I, Section 2; Database I, Section 5; Database I, Section 8; and Spreadsheet II, Section 6. The professor teaches two courses (Database I and Spreadsheet II), but four classes. Typically, the COURSE offerings are printed in a course catalog, while the CLASS offerings are printed in a class schedule for each term.</p>
+                            </div>
+
+                            <h4>Composite and Simple Attributes</h4>
+                            <p>Attributes are classified as simple or composite. A composite attribute is an attribute that can be further subdivided to yield additional attributes. For example, the attribute ADDRESS can be subdivided into street, city, state, and zip code.</p>
+                            
+                            <p>A simple attribute is an attribute that cannot be subdivided. For example, age, sex, and marital status would be classified as simple attributes. To facilitate detailed queries, it is wise to change composite attributes into a series of simple attributes.</p>
+
+                            <h4>Single-Valued Attributes</h4>
+                            <p>A single-valued attribute is an attribute that can have only a single value. For example, a person can have only one Social Security number, and a manufactured part can have only one serial number.</p>
+
+                            <h4>Multivalued Attributes</h4>
+                            <p>Multivalued attributes are attributes that can have many values. For instance, a person may have several college degrees, and a household may have several different phones, each with its own number. Similarly, a car's color may be subdivided into many colors for the roof, body, and trim.</p>
+
+                            <div class="note-box">
+                                <p>In the ERD models in Figure 4.3, the CAR entity's foreign key (FK) has been typed as MOD_CODE. This attribute was manually added to the entity. Actually, proper use of database modeling software will automatically produce the FK when the relationship is defined.</p>
+                            </div>
+
+                            <h4>Derived Attributes</h4>
+                            <p>A derived attribute is an attribute whose value is calculated (derived) from other attributes. The derived attribute need not be physically stored within the database; instead, it can be derived by using an algorithm.</p>
+
+                            <div class="example-box">
+                                <h4>Example: Derived Attributes</h4>
+                                <ul>
+                                    <li>Employee's age can be computed from current date and birth date</li>
+                                    <li>Total cost of an order can be derived by multiplying quantity by unit price</li>
+                                    <li>Estimated average speed can be derived by dividing trip distance by time</li>
+                                </ul>
+                            </div>
+
+                            <div class="table-box">
+                                <h4>Table 4.2: Advantages and Disadvantages of Storing Derived Attributes</h4>
+                                <table>
+                                    <tr>
+                                        <th>Advantages</th>
+                                        <th>Disadvantages</th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <ul>
+                                                <li>Faster response to queries requiring derived data</li>
+                                                <li>Complex computations done once, at data entry</li>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <ul>
+                                                <li>Additional storage space required</li>
+                                                <li>Data redundancy introduced</li>
+                                                <li>Must update derived attributes when base attributes change</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="topic-4-1c" class="topic">
+                        <h3 id="section-4-4">4-4 Relationships</h3>
+                        <div class="topic-content">
+                            <p>Recall from Chapter 2 that a relationship is an association between entities. The entities that participate in a relationship are also known as participants, and each relationship is identified by a name that describes the relationship.</p>
+
+                            <p>The relationship name is an active or passive verb; for example:</p>
+                            <ul>
+                                <li>A STUDENT takes a CLASS</li>
+                                <li>A PROFESSOR teaches a CLASS</li>
+                                <li>A DEPARTMENT employs a PROFESSOR</li>
+                                <li>A DIVISION is managed by an EMPLOYEE</li>
+                                <li>An AIRCRAFT is flown by a CREW</li>
+                            </ul>
+
+                            <p>Relationships between entities always operate in both directions. To define the relationship between the entities named CUSTOMER and INVOICE, you would specify that:</p>
+                            <ul>
+                                <li>A CUSTOMER may generate many INVOICEs.</li>
+                                <li>Each INVOICE is generated by one CUSTOMER.</li>
+                            </ul>
+
+                            <h4>Connectivity and Cardinality</h4>
+                            <p>The term connectivity is used to describe the relationship classification. Cardinality expresses the minimum and maximum number of entity occurrences associated with one occurrence of the related entity.</p>
+
+                            <div class="key-points">
+                                <h4>Important Concepts:</h4>
+                                <ul>
+                                    <li><strong>Connectivity:</strong> Describes relationship types (1:1, 1:M, or M:N)</li>
+                                    <li><strong>Cardinality:</strong> Expresses specific minimum and maximum numbers of related entities</li>
+                                    <li><strong>Format:</strong> Cardinality is indicated using (x,y) where x is minimum and y is maximum</li>
+                                </ul>
+                            </div>
+
+                            <div class="example-box">
+                                <h4>Example: Basketball Team Cardinality</h4>
+                                <p>Consider a youth basketball league where:</p>
+                                <ul>
+                                    <li>A team must have a minimum of 5 players</li>
+                                    <li>A team can have a maximum of 8 players</li>
+                                    <li>A player can be assigned to only one team</li>
+                                </ul>
+                                <p>This would be expressed as cardinality (5,8) from Player to Team, and (1,1) from Team to Player.</p>
+                            </div>
+
+                            <div class="note-box">
+                                <h4>Implementation Note</h4>
+                                <p>Many database designers using Crow's Foot notation do not depict specific cardinalities on the ER diagram because these specific limits cannot be implemented directly through database design. Instead, such constraints are typically handled through application logic or database triggers.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="topic-4-1e" class="topic">
+                        <h3 id="section-4-5">4-5 Information Requirements</h3>
+                        <div class="topic-content">
+                            <p>Information requirements are the data elements that are necessary for the database to meet the needs of the end users. These requirements are derived from the business rules and the data model components. The information requirements are used to:</p>
+                            <ul>
+                                <li>Identify the data elements that need to be stored in the database</li>
+                                <li>Determine the data types and formats for these elements</li>
+                                <li>Establish the relationships between data elements</li>
+                                <li>Ensure that the data is consistent and accurate</li>
+                            </ul>
+
+                            <div class="key-points">
+                                <h4>Key Points:</h4>
+                                <ul>
+                                    <li>Information requirements are derived from business rules and data model components</li>
+                                    <li>They help ensure that the database meets the needs of the end users</li>
+                                    <li>They guide the design of the database structure</li>
+                                </ul>
+                            </div>
+
+                            <div class="example-box">
+                                <h4>Example: Information Requirements for a Sales Database</h4>
+                                <p>Consider a sales database that needs to store information about customers, orders, products, and salespeople. The information requirements for this database might include:</p>
+                                <ul>
+                                    <li>Customer name, address, and phone number</li>
+                                    <li>Order number, date, and status</li>
+                                    <li>Product name, category, and price</li>
+                                    <li>Salesperson name, commission rate, and sales volume</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="topic-4-1f" class="topic">
+                        <h3>4-1f Existence Dependence</h3>
+                        <div class="topic-content">
+                            <p>An entity is said to be existence-dependent if it can exist in the database only when it is associated with another related entity occurrence. In implementation terms, an entity is existence-dependent if it has a mandatory foreign key—that is, a foreign key attribute that cannot be null.</p>
+
+                            <div class="example-box">
+                                <h4>Example: Existence Dependence</h4>
+                                <p>In the relationship "EMPLOYEE claims DEPENDENT", the DEPENDENT entity is clearly existence-dependent on the EMPLOYEE entity because it is impossible for the dependent to exist apart from the EMPLOYEE in the database.</p>
+                            </div>
+
+                            <h4>Strong vs. Regular Entities</h4>
+                            <p>If an entity can exist apart from all of its related entities, then it is existence-independent, and it is referred to as a strong entity or regular entity. For example, if some parts are produced in-house and others are bought from vendors, a PART can exist independently from a VENDOR in the relationship "PART is supplied by VENDOR".</p>
+
+                            <div class="note-box">
+                                <p>The concept of relationship strength is not part of the original ERM. Instead, this concept applies directly to Crow's Foot diagrams. Because Crow's Foot diagrams are used extensively to design relational databases, it is important to understand relationship strength as it affects database implementation.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="topic-4-1g" class="topic">
+                        <h3>4-1g Relationship Strength</h3>
+                        <div class="topic-content">
+                            <p>The concept of relationship strength is based on how the primary key of a related entity is defined. To implement a relationship, the primary key of one entity appears as a foreign key in the related entity.</p>
+
+                            <h4>Weak (Non-Identifying) Relationships</h4>
+                            <p>A weak relationship, also known as a non-identifying relationship, exists if the primary key of the related entity does not contain a primary key component of the parent entity. By default, relationships are established by having the primary key of the parent entity appear as a foreign key (FK) on the related entity.</p>
+
+                            <h4>Strong (Identifying) Relationships</h4>
+                            <p>A strong (identifying) relationship exists when the primary key of the related entity contains a primary key component of the parent entity. For example, if the CLASS entity primary key is composed of CRS_CODE and CLASS_SECTION, where CRS_CODE is inherited from the COURSE entity.</p>
+
+                            <div class="key-points">
+                                <h4>Relationship Strength Summary:</h4>
+                                <ul>
+                                    <li><strong>Weak Relationship:</strong> FK is not part of the related entity's PK</li>
+                                    <li><strong>Strong Relationship:</strong> FK is part of the related entity's PK</li>
+                                    <li><strong>Visual Representation:</strong> Crow's Foot notation uses dashed lines for weak relationships and solid lines for strong relationships</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="topic-4-1h" class="topic">
+                        <h3>4-1h Weak Entities</h3>
+                        <div class="topic-content">
+                            <p>In contrast to the strong or regular entity mentioned in Section 4-1f, a weak entity is one that meets two conditions:</p>
+                            
+                            <div class="key-points">
+                                <h4>Weak Entity Conditions:</h4>
+                                <ul>
+                                    <li>The entity is existence-dependent; it cannot exist without the entity with which it has a relationship.</li>
+                                    <li>The entity has a primary key that is partially or totally derived from the parent entity in the relationship.</li>
+                                </ul>
+                            </div>
+
+                            <div class="example-box">
+                                <h4>Example: Insurance Policy Dependents</h4>
+                                <p>A company insurance policy insures an employee and any dependents. For the purpose of describing an insurance policy:</p>
+                                <ul>
+                                    <li>An EMPLOYEE might or might not have a DEPENDENT</li>
+                                    <li>The DEPENDENT must be associated with an EMPLOYEE</li>
+                                    <li>The DEPENDENT cannot exist without the EMPLOYEE</li>
+                                    <li>A person cannot get insurance coverage as a dependent unless the person is a dependent of an employee</li>
+                                </ul>
+                                <p>DEPENDENT is the weak entity in the relationship "EMPLOYEE has DEPENDENT."</p>
+                            </div>
+
+                            <div class="note-box">
+                                <p>The Chen notation identifies the weak entity by using a double-walled entity rectangle. The Crow's Foot notation uses the relationship line and the PK/FK designation to indicate whether the related entity is weak.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="topic-4-1i" class="topic">
+                        <h3>4-1i Relationship Participation</h3>
+                        <div class="topic-content">
+                            <p>Participation in an entity relationship is either optional or mandatory. Because relationships are bidirectional, it is necessary to determine the connectivity and participation in both directions.</p>
+
+                            <h4>Optional Participation</h4>
+                            <p>Optional participation means that one entity occurrence does not require a corresponding entity occurrence in a particular relationship. For example, in the "COURSE generates CLASS" relationship, some courses do not generate a class.</p>
+
+                            <div class="note-box">
+                                <p>In Crow's Foot notation, an optional relationship between entities is shown by drawing a small circle (O) on the side of the optional entity. The existence of an optional entity indicates that its minimum cardinality is 0.</p>
+                            </div>
+
+                            <h4>Mandatory Participation</h4>
+                            <p>Mandatory participation means that one entity occurrence requires a corresponding entity occurrence in a particular relationship. If no optionality symbol is depicted with the entity, the entity is assumed to exist in a mandatory relationship with the related entity.</p>
+
+                            <div class="example-box">
+                                <h4>Example: Professor and Class Relationship</h4>
+                                <p>Consider the "PROFESSOR teaches CLASS" relationship:</p>
+                                <ul>
+                                    <li>Some professors conduct research without teaching classes (CLASS is optional to PROFESSOR)</li>
+                                    <li>Every class must be taught by a professor (PROFESSOR is mandatory to CLASS)</li>
+                                    <li>A professor may teach up to three classes (cardinality (0,3) next to CLASS)</li>
+                                    <li>Each class has exactly one professor (cardinality (1,1) next to PROFESSOR)</li>
+                                </ul>
+                            </div>
+
+                            <div class="key-points">
+                                <h4>Important Distinctions:</h4>
+                                <ul>
+                                    <li>Relationship participation and relationship strength do not describe the same thing</li>
+                                    <li>Participation depends on business rules</li>
+                                    <li>Strength depends on primary key structure</li>
+                                    <li>Strong relationships can exist with optional participation</li>
+                                    <li>Weak relationships can exist with mandatory participation</li>
+                                </ul>
+                            </div>
+
+                            <div class="table-box">
+                                <h4>Table 4.3: Crow's Foot Notation Combinations</h4>
+                                <table>
+                                    <tr>
+                                        <th>Symbol</th>
+                                        <th>Meaning</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Circle (O)</td>
+                                        <td>Optional participation (minimum = 0)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vertical line (|)</td>
+                                        <td>Mandatory participation (minimum = 1)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Crow's foot</td>
+                                        <td>Many (maximum = n)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Single line</td>
+                                        <td>One (maximum = 1)</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="topic-4-1j" class="topic">
+                        <h3>4-1j Relationship Degree</h3>
+                        <div class="topic-content">
+                            <p>A relationship degree indicates the number of entities or participants associated with a relationship. The most common types are:</p>
+
+                            <div class="key-points">
+                                <h4>Types of Relationship Degrees:</h4>
+                                <ul>
+                                    <li><strong>Unary:</strong> Association maintained within a single entity</li>
+                                    <li><strong>Binary:</strong> Two entities are associated</li>
+                                    <li><strong>Ternary:</strong> Three entities are associated</li>
+                                    <li><strong>Higher degrees:</strong> Four or more entities (rare and not specifically named)</li>
+                                </ul>
+                            </div>
+
+                            <h4>Binary Relationships</h4>
+                            <p>Binary relationships are the most common type of relationship. To simplify the conceptual design, most higher-order relationships are decomposed into equivalent binary relationships whenever possible.</p>
+
+                            <h4>Ternary and Higher-Order Relationships</h4>
+                            <p>A ternary relationship implies an association among three different entities. For example, consider these business rules:</p>
+                            <ul>
+                                <li>A DOCTOR writes one or more PRESCRIPTIONs</li>
+                                <li>A PATIENT may receive one or more PRESCRIPTIONs</li>
+                                <li>A DRUG may appear in one or more PRESCRIPTIONs</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section id="topic-4-1k" class="topic">
+                        <h3>4-1k Associative (Composite) Entities</h3>
+                        <div class="topic-content">
+                            <p>M:N relationships are a valid construct at the conceptual level and are found frequently during the ER modeling process. However, implementing the M:N relationship requires the use of an additional entity.</p>
+
+                            <div class="definition-box">
+                                <h4>Associative Entity</h4>
+                                <p>An entity that represents an M:N relationship between two or more entities. Also called a composite or bridge entity, it:</p>
+                                <ul>
+                                    <li>Is in a 1:M relationship with the parent entities</li>
+                                    <li>Is composed of the primary key attributes of each parent entity</li>
+                                    <li>Can have additional attributes of its own</li>
+                                </ul>
+                            </div>
+
+                            <div class="example-box">
+                                <h4>Example: Student Enrollment</h4>
+                                <p>Consider the ENROLL associative entity that represents the M:N relationship between STUDENT and CLASS:</p>
+                                <ul>
+                                    <li>The composite entity is existence-dependent on both STUDENT and CLASS</li>
+                                    <li>Its composition is based on the primary keys of both connected entities</li>
+                                    <li>It may include additional attributes like grades and absences</li>
+                                    <li>No null entries are possible in the key attributes</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="topic-4-2" class="topic">
+                        <h3>4-2 Developing an ER Diagram</h3>
+                        <div class="topic-content">
+                            <p>The process of database design is iterative rather than a linear or sequential process. Building an ERD usually involves the following activities:</p>
+
+                            <div class="key-points">
+                                <h4>ERD Development Steps:</h4>
+                                <ol>
+                                    <li>Create a detailed narrative of the organization's description of operations</li>
+                                    <li>Identify the business rules based on the description of operations</li>
+                                    <li>Identify the main entities and relationships from the business rules</li>
+                                    <li>Develop the initial ERD</li>
+                                    <li>Identify the attributes and primary keys that adequately describe the entities</li>
+                                    <li>Revise and review the ERD</li>
+                                </ol>
+                            </div>
+
+                            <p>During the review process, additional objects, attributes, and relationships probably will be uncovered. Therefore, the basic ERM will be modified to incorporate the newly discovered ER components.</p>
+
+                            <div class="note-box">
+                                <h4>Design Process Tips</h4>
+                                <ul>
+                                    <li>The database designer does not depend simply on interviews</li>
+                                    <li>Examine business forms and reports used in daily operations</li>
+                                    <li>The process is repeated until end users and designers agree on the representation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="topic-4-3" class="topic">
+                        <h3>4-3 Database Design Challenges: Conflicting Goals</h3>
+                        <div class="topic-content">
+                            <p>Database designers must often make design compromises that are triggered by conflicting goals, such as:</p>
+
+                            <div class="key-points">
+                                <h4>Design Goals:</h4>
+                                <ul>
+                                    <li><strong>Design standards:</strong> Conforming to design standards that minimize data redundancies and anomalies</li>
+                                    <li><strong>Processing speed:</strong> Achieving high processing speeds and minimal access time</li>
+                                    <li><strong>Information requirements:</strong> Meeting complex information requirements and data transformations</li>
+                                </ul>
+                            </div>
+
+                            <h4>Design Standards</h4>
+                            <p>The database design must conform to design standards that:</p>
+                            <ul>
+                                <li>Guide development of logical structures</li>
+                                <li>Minimize data redundancies</li>
+                                <li>Minimize likelihood of destructive data anomalies</li>
+                                <li>Avoid nulls to the greatest extent possible</li>
+                            </ul>
+
+                            <h4>Processing Speed</h4>
+                            <p>High processing speed requirements may lead to:</p>
+                            <ul>
+                                <li>Minimizing the number and complexity of relationships</li>
+                                <li>Combining tables to avoid additional relationships</li>
+                                <li>Including derived attributes for faster data retrieval</li>
+                            </ul>
+
+                            <h4>Information Requirements</h4>
+                            <p>Complex information requirements may require:</p>
+                            <ul>
+                                <li>Data transformations</li>
+                                <li>Expanded number of entities and attributes</li>
+                                <li>Sacrifice of "clean" design structures</li>
+                                <li>Trade-offs between transaction speed and information generation</li>
+                            </ul>
+
+                            <div class="example-box">
+                                <h4>Example: Sales Report Trade-off</h4>
+                                <p>Consider a detailed sales report that includes subtotals, taxes, and totals for hundreds of thousands of invoices:</p>
+                                <ul>
+                                    <li>Computing values at report time is time-consuming</li>
+                                    <li>Storing derived values speeds up reporting but:</li>
+                                    <ul>
+                                        <li>Slows down transaction processing</li>
+                                        <li>Requires additional storage space</li>
+                                        <li>Introduces data redundancy</li>
+                                    </ul>
+                                </ul>
+                            </div>
+
+                            <div class="key-points">
+                                <h4>Final Considerations:</h4>
+                                <ul>
+                                    <li>A "perfect" design that fails to meet customer requirements is not acceptable</li>
+                                    <li>Compromises must balance theoretical perfection with practical needs</li>
+                                    <li>Document all design decisions and their rationale</li>
+                                    <li>Maintain clear documentation for future modifications</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="chapter-4-summary" class="topic">
+                        <h3>Chapter Summary</h3>
+                        <div class="topic-content">
+                            <div class="summary-box">
+                                <h4>Key Concepts:</h4>
+                                <ul>
+                                    <li>The ERM uses ERDs to represent the conceptual database as viewed by the end user</li>
+                                    <li>Main components are entities, relationships, and attributes</li>
+                                    <li>Connectivity describes relationship classification (1:1, 1:M, or M:N)</li>
+                                    <li>Cardinality expresses specific number of entity occurrences</li>
+                                    <li>M:N relationships must be mapped to 1:M relationships through composite entities</li>
+                                    <li>UML class diagrams can represent data models at conceptual or implementation levels</li>
+                                </ul>
+
+                                <h4>Key Terms:</h4>
+                                <ul>
+                                    <li>binary relationship</li>
+                                    <li>Cardinality</li>
+                                    <li>composite attribute</li>
+                                    <li>composite identifier</li>
+                                    <li>connectivity</li>
+                                    <li>derived attribute</li>
+                                    <li>domain</li>
+                                    <li>existence-dependent</li>
+                                    <li>existence-independent</li>
+                                    <li>identifiers</li>
+                                    <li>iterative process</li>
+                                    <li>Mandatory participation</li>
+                                    <li>Multivalued attributes</li>
+                                    <li>optional attribute</li>
+                                    <li>Optional participation</li>
+                                    <li>participants</li>
+                                    <li>recursive relationship</li>
+                                    <li>regular entity</li>
+                                    <li>relational schema</li>
+                                    <li>relationship degree</li>
+                                    <li>required attribute</li>
+                                    <li>simple attribute</li>
+                                    <li>single-valued attribute</li>
+                                    <li>strong entity</li>
+                                    <li>strong (identifying) relationship</li>
+                                    <li>ternary relationship</li>
+                                    <li>unary relationship</li>
+                                    <li>weak entity</li>
+                                    <li>weak (non-identifying) relationship</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                </section>
+                
+                <section id="chapter-5-extended-entity-relationship-model" class="chapter">
+                    <div class="chapter-intro">
+                        <h2 id="chapter5">Chapter 5: The Extended Entity Relationship Model</h2>
+
+                        <div class="section">
+                            <h3 id="section-5-1">5-1 The Extended Entity Relationship Model</h3>
+                            <p>As the complexity of data structures being modeled has increased and application software requirements have become more stringent, the need to capture more information in the data model has increased. The extended entity relationship model (EERM), sometimes referred to as the enhanced entity relationship model, is the result of adding more semantic constructs to the original ER model. A diagram that uses the EERM is called an EER diagram (EERD).</p>
+
+                            <h4>5-1a Entity Supertypes and Subtypes</h4>
+                            <p>Data modelers must find various ways to group entities based on their characteristics. For instance, a retail company could group employees as salaried and hourly, while a university could group employees as faculty, staff, and administrators.</p>
+
+                            <div class="key-points">
+                                <h5>Benefits of Employee Grouping:</h5>
+                                <ul>
+                                    <li>Avoids unnecessary nulls in attributes when some employees have characteristics not shared by other employees</li>
+                                    <li>Enables a particular employee type to participate in relationships unique to that employee type</li>
+                                </ul>
+                            </div>
+
+                            <div class="example-box">
+                                <h5>Example: Aviation Business Employee Types</h5>
+                                <p>Consider an aviation business that employs pilots, mechanics, secretaries, accountants, and database managers. Pilots share certain characteristics with other employees (last name, hire date) but also have unique characteristics (flight hour restrictions, flight checks, periodic training). Storing all characteristics in a single EMPLOYEE entity would result in many null values for non-pilot employees.</p>
+                            </div>
+
+                            <div class="definition-box">
+                                <h5>Key Terms:</h5>
+                                <ul>
+                                    <li><strong>Entity Supertype:</strong> A generic entity type related to one or more entity subtypes, containing common characteristics.</li>
+                                    <li><strong>Entity Subtype:</strong> A specialized entity type that inherits characteristics from its supertype while maintaining its own unique characteristics.</li>
+                                </ul>
+                            </div>
+
+                            <h4>5-1b Specialization Hierarchy</h4>
+                            <p>Entity supertypes and subtypes are organized in a specialization hierarchy, depicting the arrangement of higher-level entity supertypes (parent entities) and lower-level entity subtypes (child entities).</p>
+
+                            <div class="note-box">
+                                <p>Within a specialization hierarchy, a subtype can exist only within the context of a supertype, and every subtype can have only one supertype to which it is directly related.</p>
+                            </div>
+
+                            <h4>5-1c Inheritance</h4>
+                            <p>Inheritance enables an entity subtype to inherit the attributes and relationships of the supertype. Supertypes contain attributes common to all subtypes, while subtypes contain only their unique attributes.</p>
+
+                            <div class="key-points">
+                                <h5>Important Inheritance Characteristics:</h5>
+                                <ul>
+                                    <li>All entity subtypes inherit their primary key attribute from their supertype</li>
+                                    <li>Subtypes inherit all relationships in which the supertype entity participates</li>
+                                    <li>Subtypes can have their own unique relationships</li>
+                                </ul>
+                            </div>
+
+                            <h4>5-1d Subtype Discriminator</h4>
+                            <p>A subtype discriminator is the attribute in the supertype entity that determines to which subtype the supertype occurrence is related.</p>
+
+                            <div class="example-box">
+                                <h5>Example: Employee Type Discriminator</h5>
+                                <p>Using EMP_TYPE as a discriminator:
+                                <ul>
+                                    <li>"P" indicates a PILOT subtype</li>
+                                    <li>"M" indicates a MECHANIC subtype</li>
+                                    <li>"A" indicates an ACCOUNTANT subtype</li>
+                                </ul>
+                                </p>
+                            </div>
+
+                            <h4>5-1e Disjoint and Overlapping Constraints</h4>
+                            <p>An entity supertype can have disjoint or overlapping entity subtypes.</p>
+
+                            <div class="definition-box">
+                                <h5>Types of Constraints:</h5>
+                                <ul>
+                                    <li><strong>Disjoint Subtypes:</strong> Each entity instance of the supertype can appear in only one subtype</li>
+                                    <li><strong>Overlapping Subtypes:</strong> Each entity instance of the supertype may appear in more than one subtype</li>
+                                </ul>
+                            </div>
+
+                            <h4>5-1f Completeness Constraint</h4>
+                            <p>The completeness constraint specifies whether each entity supertype occurrence must also be a member of at least one subtype.</p>
+
+                            <div class="definition-box">
+                                <h5>Types of Completeness:</h5>
+                                <ul>
+                                    <li><strong>Partial Completeness:</strong> Not every supertype occurrence must be a member of a subtype</li>
+                                    <li><strong>Total Completeness:</strong> Every supertype occurrence must be a member of at least one subtype</li>
+                                </ul>
+                            </div>
+
+                            <h4>5-1g Specialization and Generalization</h4>
+                            <p>There are two approaches to developing entity supertypes and subtypes:</p>
+                            <ul>
+                                <li><strong>Specialization:</strong> Top-down process of identifying lower-level entity subtypes from a higher-level entity supertype</li>
+                                <li><strong>Generalization:</strong> Bottom-up process of identifying a higher-level entity supertype from lower-level entity subtypes</li>
+                            </ul>
+
+                            <h3 id="section-5-2">5-2 Entity Clustering</h3>
+                            <p>Entity clustering is used to minimize the number of entities shown in the ERD when dealing with hundreds of entities and relationships.</p>
+
+                            <div class="definition-box">
+                                <h5>Entity Cluster:</h5>
+                                <p>A "virtual" entity type used to represent multiple entities and relationships in the ERD. It is formed by combining multiple interrelated entities into a single, abstract entity object.</p>
+                            </div>
+
+                            <h3 id="section-5-3">5-3 Entity Integrity: Selecting Primary Keys</h3>
+                            <p>The primary key's function is to guarantee entity integrity and implement relationships in the relational model.</p>
+
+                            <h4>5-3a Natural Keys and Primary Keys</h4>
+                            <p>A natural key is a real-world, generally accepted identifier used to distinguish real-world objects. Natural keys are familiar to end users and form part of their day-to-day business vocabulary.</p>
+
+                            <h4>5-3b Primary Key Guidelines</h4>
+                            <div class="key-points">
+                                <h5>Desirable Primary Key Characteristics:</h5>
+                                <ul>
+                                    <li>Unique values</li>
+                                    <li>Nonintelligent (no embedded semantic meaning)</li>
+                                    <li>No change over time</li>
+                                    <li>Preferably single-attribute</li>
+                                    <li>Preferably numeric</li>
+                                    <li>Security-compliant</li>
+                                </ul>
+                            </div>
+
+                            <h4>5-3c When to Use Composite Primary Keys</h4>
+                            <p>Composite primary keys are particularly useful in two cases:</p>
+                            <ul>
+                                <li>As identifiers of composite entities</li>
+                                <li>As identifiers of weak entities</li>
+                            </ul>
+
+                            <h4>5-3d When to Use Surrogate Primary Keys</h4>
+                            <p>A surrogate key is a primary key created by the database designer to simplify the identification of entity instances when:</p>
+                            <ul>
+                                <li>A primary key doesn't exist in the real world</li>
+                                <li>The existing natural key might not be a suitable primary key</li>
+                                <li>The selected candidate key has embedded semantic contents</li>
+                                <li>The selected candidate key is too long or cumbersome</li>
+                            </ul>
+
+                            <h3 id="section-5-4">5-4 Design Cases: Learning Flexible Database Design</h3>
+                            
+                            <h4>5-4a Design Case 1: Implementing 1:1 Relationships</h4>
+                            <p>When implementing 1:1 relationships, the placement of foreign keys depends on the relationship properties:</p>
+                            <ul>
+                                <li>If one side is mandatory and the other optional, place the PK of the mandatory side in the optional side</li>
+                                <li>If both sides are optional, select the FK that causes the fewest nulls</li>
+                                <li>If both sides are mandatory, consider revising the model</li>
+                            </ul>
+
+                            <h4>5-4b Design Case 2: Maintaining History of Time-Variant Data</h4>
+                            <p>Time-variant data refers to data whose values change over time and require maintaining a history of changes. This often requires creating new entities to store historical values and dates.</p>
+
+                            <h4>5-4c Design Case 3: Fan Traps</h4>
+                            <div class="definition-box">
+                                <h5>Fan Trap:</h5>
+                                <p>A design trap that occurs when one entity has two 1:M relationships to other entities, producing an unrepresented association between those entities.</p>
+                            </div>
+
+                            <h4>5-4d Design Case 4: Redundant Relationships</h4>
+                            <p>Redundant relationships occur when there are multiple relationship paths between related entities. While generally avoided, some designs use redundant relationships to simplify the model.</p>
+
+                            <div class="chapter-summary">
+                                <h3>Chapter Summary</h3>
+                                <ul>
+                                    <li>The EER model adds semantics to the ER model through entity supertypes, subtypes, and clusters</li>
+                                    <li>Inheritance allows subtypes to inherit attributes and relationships from supertypes</li>
+                                    <li>Entity clusters help manage complex diagrams with many entities</li>
+                                    <li>Primary keys must be carefully selected based on specific guidelines</li>
+                                    <li>Special design cases require careful consideration of relationship implementations</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                </section>
+
+                <section>
+                    <h2 id="chapter6">Chapter 6: Database Tables and Normalization</h2>
+                    
+                    <section>
+                        <h3 id="section-6-1">6-1 Database Tables and Normalization</h3>
+                        <div class="content-box">
+                            <p>Good relational database software alone cannot prevent data redundancy. The table structure must be properly designed to allow the RDBMS to demonstrate its capabilities. Normalization is a process for evaluating and correcting table structures to:</p>
+                            <ul>
+                                <li>Minimize data redundancies</li>
+                                <li>Reduce likelihood of data anomalies</li>
+                            </ul>
+
+                            <div class="key-points">
+                                <h4>Key Points about Normalization</h4>
+                                <ul>
+                                    <li>Works through stages called normal forms (1NF, 2NF, 3NF)</li>
+                                    <li>3NF is generally sufficient for business database design</li>
+                                    <li>Higher normal forms may require more relational join operations</li>
+                                    <li>Sometimes denormalization is needed for performance requirements</li>
+                                </ul>
+                            </div>
+
+                            <div class="note-box">
+                                <h4>Important Note:</h4>
+                                <p>In normalization terminology:</p>
+                                <ul>
+                                    <li>Prime attribute: Any attribute that is at least part of a key</li>
+                                    <li>Nonprime attribute: Not part of any candidate key</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3 id="section-6-2">6-2 The Need for Normalization</h3>
+                        <div class="content-box">
+                            <p>Normalization is typically used in two situations:</p>
+                            <ol>
+                                <li>When designing a new database structure based on business requirements</li>
+                                <li>When modifying existing data structures (files, spreadsheets, older databases)</li>
+                            </ol>
+
+                            <div class="key-points">
+                                <h4>Database Design Process</h4>
+                                <ul>
+                                    <li>Start by defining business rules and constraints</li>
+                                    <li>Identify functional dependencies, entities, and attributes</li>
+                                    <li>Apply normalization to validate and refine the model</li>
+                                </ul>
+                            </div>
+
+                            <div class="example-box">
+                                <h4>Common Data Problems Without Normalization:</h4>
+                                <ul>
+                                    <li>Data inconsistencies (e.g., different spellings for same job title)</li>
+                                    <li>Multivalued attributes making data management difficult</li>
+                                    <li>Redundant data requiring multiple updates</li>
+                                    <li>Data anomalies affecting reporting accuracy</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3 id="section-6-3">6-3 The Normalization Process</h3>
+                        <div class="content-box">
+                            <h4>Characteristics of Well-Formed Relations:</h4>
+                            <ul>
+                                <li>Each relation represents a single subject</li>
+                                <li>Each row/column intersection contains only one value</li>
+                                <li>Minimum controlled redundancy</li>
+                                <li>All nonprime attributes depend on the primary key</li>
+                                <li>No insertion, update, or deletion anomalies</li>
+                            </ul>
+
+                            <div class="definition-box">
+                                <h4>Normal Forms:</h4>
+                                <ul>
+                                    <li><strong>First Normal Form (1NF):</strong> Table format, no repeating groups, PK identified</li>
+                                    <li><strong>Second Normal Form (2NF):</strong> 1NF and no partial dependencies</li>
+                                    <li><strong>Third Normal Form (3NF):</strong> 2NF and no transitive dependencies</li>
+                                    <li><strong>Boyce-Codd Normal Form (BCNF):</strong> 3NF and every determinant is a candidate key</li>
+                                    <li><strong>Fourth Normal Form (4NF):</strong> BCNF and no independent multivalued dependencies</li>
+                                    <li><strong>Fifth Normal Form (5NF):</strong> 4NF and cannot have lossless decomposition</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3 id="section-6-4">6-4 Improving the Design</h3>
+                        <div class="content-box">
+                            <h4>Design Improvement Strategies:</h4>
+                            <ul>
+                                <li>Minimize data entry errors through proper key design</li>
+                                <li>Follow consistent naming conventions</li>
+                                <li>Ensure attribute atomicity</li>
+                                <li>Identify necessary new attributes</li>
+                                <li>Establish proper relationships</li>
+                                <li>Consider data granularity</li>
+                                <li>Maintain historical accuracy</li>
+                                <li>Evaluate derived attributes</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3 id="section-6-5">6-5 Surrogate Key Considerations</h3>
+                        <div class="content-box">
+                            <p>Surrogate keys are system-defined attributes used when:</p>
+                            <ul>
+                                <li>Composite primary keys become too cumbersome</li>
+                                <li>Natural primary keys have too much descriptive content</li>
+                                <li>Unique identification needs to be guaranteed</li>
+                            </ul>
+
+                            <div class="note-box">
+                                <h4>Implementation Examples:</h4>
+                                <ul>
+                                    <li>Microsoft Access: AutoNumber</li>
+                                    <li>SQL Server: Identity column</li>
+                                    <li>Oracle: Sequence object</li>
+                                    <li>MySQL: Auto-increment constraint</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3 id="section-6-6">6-6 Higher-Level Normal Forms</h3>
+                        <div class="content-box">
+                            <h4>BCNF (Boyce-Codd Normal Form)</h4>
+                            <ul>
+                                <li>Special case of 3NF</li>
+                                <li>Every determinant must be a candidate key</li>
+                                <li>Only possible when multiple candidate keys exist</li>
+                            </ul>
+
+                            <h4>4NF (Fourth Normal Form)</h4>
+                            <ul>
+                                <li>Addresses multivalued dependencies</li>
+                                <li>Requires at least three attributes</li>
+                                <li>Eliminates certain types of redundancies</li>
+                            </ul>
+
+                            <h4>5NF (Fifth Normal Form)</h4>
+                            <ul>
+                                <li>Also known as Project Join Normal Form (PJNF)</li>
+                                <li>Addresses decomposition without data loss</li>
+                                <li>Mainly of theoretical interest</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3 id="section-6-7">6-7 Normalization and Database Design</h3>
+                        <div class="content-box">
+                            <p>Normalization should be integrated into the design process:</p>
+                            <ul>
+                                <li>Use with Entity Relationship Modeling</li>
+                                <li>Verify normal forms before creating tables</li>
+                                <li>Apply iteratively during design refinement</li>
+                            </ul>
+
+                            <div class="key-points">
+                                <h4>Design Process Integration:</h4>
+                                <ul>
+                                    <li>ERD provides macro view of data requirements</li>
+                                    <li>Normalization provides micro view of specific entities</li>
+                                    <li>Both techniques work together iteratively</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3 id="section-6-8">6-8 Denormalization</h3>
+                        <div class="content-box">
+                            <p>Denormalization may be considered when:</p>
+                            <ul>
+                                <li>Processing speed is critical</li>
+                                <li>Join operations need to be minimized</li>
+                                <li>Reporting requirements demand specific structures</li>
+                            </ul>
+
+                            <div class="warning-box">
+                                <h4>Denormalization Risks:</h4>
+                                <ul>
+                                    <li>Increased data anomalies</li>
+                                    <li>More complex data updates</li>
+                                    <li>Harder to maintain data integrity</li>
+                                    <li>More storage space required</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html> 
