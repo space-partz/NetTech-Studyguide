@@ -13,24 +13,10 @@
         <!-- Sidebar Navigation -->
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-header">
-                <h1>CIS Study Guide</h1>
+                <h1>Study Guide</h1>
                 <button id="sidebar-toggle" class="sidebar-toggle">
                     <i class="fas fa-bars"></i>
                 </button>
-            </div>
-            <div class="theme-toggle">
-                <button id="theme-toggle-btn">
-                    <i class="fas fa-moon"></i>
-                    <span>Dark Mode</span>
-                </button>
-            </div>
-            <div class="search-container">
-                <div class="search-box">
-                    <input type="text" id="search-input" placeholder="Search...">
-                    <button id="search-btn">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </div>
             </div>
             <nav class="sidebar-nav">
                 <h2>Modules</h2>
@@ -105,14 +91,38 @@
         </aside>
 
         <!-- Main Content Area -->
-        <main class="content" id="content">
-            <div class="content-header">
-                <h2 id="current-chapter">Chapter 1: Database Systems</h2>
-                <div class="content-nav">
-                    <button id="prev-chapter" disabled><i class="fas fa-arrow-left"></i> Previous</button>
-                    <button id="next-chapter">Next <i class="fas fa-arrow-right"></i></button>
+        <main class="content">
+            <header class="content-header">
+                <div class="header-left">
+                    <h2 id="current-chapter">Chapter 1: Introduction to Databases</h2>
                 </div>
-            </div>
+                <div class="header-center">
+                    <div class="search-container">
+                        <div class="search-box">
+                            <input type="text" id="search-input" placeholder="Search...">
+                            <button id="search-btn">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <button id="theme-toggle-btn" class="theme-toggle">
+                        <i class="fas fa-moon"></i>
+                        <span>Dark Mode</span>
+                    </button>
+                    <div class="content-nav">
+                        <button id="prev-chapter" disabled>
+                            <i class="fas fa-chevron-left"></i>
+                            Previous
+                        </button>
+                        <button id="next-chapter">
+                            Next
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
 
             <div class="chapter-content">
                 <section id="chapter-1" class="chapter">

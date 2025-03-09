@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Ensure page starts at the top
+    window.scrollTo(0, 0);
+    
     // DOM Elements
     const body = document.body;
     const sidebar = document.getElementById('sidebar');
